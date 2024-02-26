@@ -30,7 +30,7 @@ def suppress_identifiers(
 def apply_hierarchy(data: list, hierarchies: dict, level: int):
     num_level = len(hierarchies.keys()) - 1
     if level > num_level:
-        return None  # Change to exception
+        raise ValueError("Error, invalid hierarchy level")
     pos = []
     for elem in data:
         pos.append(np.where(hierarchies[level - 1].values == elem)[0][0])

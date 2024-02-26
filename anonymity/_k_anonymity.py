@@ -24,12 +24,12 @@ from copy import copy
 
 
 def k_anonymity(
-    data: pd.DataFrame,
-    ident: typing.Union[typing.List, np.ndarray],
-    quasi_ident: typing.Union[typing.List, np.ndarray],
-    k: int,
-    supp_level: float,
-    hierarchies: dict,
+        data: pd.DataFrame,
+        ident: typing.Union[typing.List, np.ndarray],
+        quasi_ident: typing.Union[typing.List, np.ndarray],
+        k: int,
+        supp_level: float,
+        hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using k-anonymity.
 
@@ -100,21 +100,19 @@ def k_anonymity(
             print(f"The anonymization cannot be carried out for the given value k={k}")
             return data
 
-        # Get the attribute with more unique values
         qi_gen = quasi_ident_gen[
             np.argmax([len(np.unique(data[qi])) for qi in quasi_ident_gen])
         ]
 
-        generalization_qi = utils.apply_hierarchy(
-            data[qi_gen].values, hierarchies[qi_gen], gen_level[qi_gen] + 1
-        )
-
-        if generalization_qi is None:
-            if qi_gen in quasi_ident_gen:
-                quasi_ident_gen.remove(qi_gen)
-        else:
+        try:
+            generalization_qi = utils.apply_hierarchy(
+                data[qi_gen].values, hierarchies[qi_gen], gen_level[qi_gen] + 1
+            )
             data[qi_gen] = generalization_qi
             gen_level[qi_gen] = gen_level[qi_gen] + 1
+        except ValueError:
+            if qi_gen in quasi_ident_gen:
+                quasi_ident_gen.remove(qi_gen)
 
         k_real = pycanon.anonymity.k_anonymity(data, quasi_ident)
     return data
