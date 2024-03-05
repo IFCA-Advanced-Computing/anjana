@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import k_anonymity
+from anonymity import l_diversity
 import pycanon
 from pycanon import anonymity
 import time
@@ -30,7 +30,9 @@ for col in cols:
 print(data)
 quasi_ident = ["age", "education", "marital-status", "occupation", "sex", "native-country"]
 ident = ['race']
+sens_att = ["salary-class"]
 k = 10
+l = 2
 supp_level = 50
 
 hierarchies = {
@@ -43,10 +45,12 @@ hierarchies = {
 }
 
 start = time.time()
-data_anon = k_anonymity(data, ident, quasi_ident, k, supp_level, hierarchies)
+data_anon = l_diversity(data, ident, quasi_ident, sens_att, k, l, supp_level, hierarchies)
 end = time.time()
 print(f'Elapsed time: {end-start}')
 print(f'Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}')
+print(f'Value of l calculated: {pycanon.anonymity.l_diversity(data_anon, quasi_ident, sens_att)}')
 
-# Elapsed time: 94.8208863735199
-# Value of k calculated: 10
+# Elapsed time: 81.74294328689575
+# Value of k calculated: 158
+# Value of l calculated: 2
