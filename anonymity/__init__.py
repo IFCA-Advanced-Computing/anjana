@@ -14,6 +14,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from ._k_anonymity import k_anonymity
+from ._k_anonymity import k_anonymity, k_anonymity_aux
+from ._l_diversity import l_diversity
+from ._t_closeness import t_closeness
 
-__all__ = ["k_anonymity"]
+__all__ = [
+    "k_anonymity",
+    "k_anonymity_aux",
+    "_l_diversity",
+    "t_closeness"
+]
