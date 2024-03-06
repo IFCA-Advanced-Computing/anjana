@@ -20,16 +20,29 @@ import pycanon
 from pycanon import anonymity
 import time
 
-data = pd.read_csv("adult.csv") # 32561 rows
+data = pd.read_csv("adult.csv")  # 32561 rows
 data.columns = data.columns.str.strip()
 data = data[:1000]
-cols = ['workclass', 'education', 'marital-status',
-               'occupation', 'sex', 'native-country']
+cols = [
+    "workclass",
+    "education",
+    "marital-status",
+    "occupation",
+    "sex",
+    "native-country",
+]
 for col in cols:
     data[col] = data[col].str.strip()
 print(data)
-quasi_ident = ["age", "education", "marital-status", "occupation", "sex", "native-country"]
-ident = ['race']
+quasi_ident = [
+    "age",
+    "education",
+    "marital-status",
+    "occupation",
+    "sex",
+    "native-country",
+]
+ident = ["race"]
 sens_att = ["salary-class"]
 k = 10
 t = 0.5
@@ -45,11 +58,15 @@ hierarchies = {
 }
 
 start = time.time()
-data_anon = t_closeness(data, ident, quasi_ident, sens_att, k, t, supp_level, hierarchies)
+data_anon = t_closeness(
+    data, ident, quasi_ident, sens_att, k, t, supp_level, hierarchies
+)
 end = time.time()
-print(f'Elapsed time: {end-start}')
-print(f'Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}')
-print(f'Value of t calculated: {pycanon.anonymity.t_closeness(data_anon, quasi_ident, sens_att)}')
+print(f"Elapsed time: {end-start}")
+print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+print(
+    f"Value of t calculated: {pycanon.anonymity.t_closeness(data_anon, quasi_ident, sens_att)}"
+)
 
 # Elapsed time: 56.27998971939087
 # Value of k calculated: 11

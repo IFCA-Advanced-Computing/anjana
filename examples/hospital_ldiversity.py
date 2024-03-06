@@ -24,7 +24,7 @@ data = pd.read_csv("hospital_extended.csv")
 
 ident = ["name"]
 quasi_ident = ["age", "gender", "city"]
-sens_att = ['disease']
+sens_att = ["disease"]
 k = 2
 l = 2
 supp_level = 0
@@ -37,9 +37,13 @@ hierarchies = {
 print(hierarchies["age"])
 
 
-data_anon = l_diversity(data, ident, quasi_ident, sens_att, k, l, supp_level, hierarchies)
-print(f'Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}')
-print(f'Value of l calculated: {pycanon.anonymity.l_diversity(data_anon, quasi_ident, sens_att)}')
+data_anon = l_diversity(
+    data, ident, quasi_ident, sens_att, k, l, supp_level, hierarchies
+)
+print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+print(
+    f"Value of l calculated: {pycanon.anonymity.l_diversity(data_anon, quasi_ident, sens_att)}"
+)
 print(data_anon)
 
 #    name       age  gender        city   religion          disease

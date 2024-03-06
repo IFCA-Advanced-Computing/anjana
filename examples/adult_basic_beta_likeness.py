@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import k_anonymity
+from anonymity import basic_beta_likeness, enhanced_beta_likeness
 import pycanon
 from pycanon import anonymity
 import time
@@ -43,7 +43,9 @@ quasi_ident = [
     "native-country",
 ]
 ident = ["race"]
+sens_att = ["salary-class"]
 k = 10
+beta = 0.5
 supp_level = 50
 
 hierarchies = {
@@ -56,10 +58,16 @@ hierarchies = {
 }
 
 start = time.time()
-data_anon = k_anonymity(data, ident, quasi_ident, k, supp_level, hierarchies)
+data_anon = basic_beta_likeness(
+    data, ident, quasi_ident, sens_att, k, beta, supp_level, hierarchies
+)
 end = time.time()
-print(f"Elapsed time: {end-start}")
+print(f"Elapsed time: {end - start}")
 print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+print(
+    f"Value of beta (basic) calculated: {pycanon.anonymity.basic_beta_likeness(data_anon, quasi_ident, sens_att)}"
+)
 
-# Elapsed time: 94.8208863735199
-# Value of k calculated: 10
+# Elapsed time: 91.41718220710754
+# Value of k calculated: 158
+# Value of beta (basic) calculated: 0.3363878057426444
