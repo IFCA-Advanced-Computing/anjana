@@ -162,8 +162,9 @@ def k_anonymity_aux(
                     )
                     anonim_data = data.drop(ec_elim).reset_index()
                     supp_records = n - len(anonim_data)
-                    assert pycanon.anonymity.k_anonymity(anonim_data, quasi_ident) >= k
-                    return anonim_data, supp_records, gen_level
+                    k_supp = pycanon.anonymity.k_anonymity(anonim_data, quasi_ident)
+                    if k_supp >= k:
+                        return anonim_data, supp_records, gen_level
 
     supp_records = n - len(data)
 

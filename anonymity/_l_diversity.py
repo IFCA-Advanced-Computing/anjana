@@ -109,9 +109,7 @@ def l_diversity(
                     ]
                 )
                 anonim_data = data_kanon.drop(ec_elim).reset_index()
-                assert (
-                    pycanon.anonymity.l_diversity(anonim_data, quasi_ident, sens_att)
-                    >= l
-                )
-                return anonim_data
+                l_supp = pycanon.anonymity.l_diversity(anonim_data, quasi_ident, sens_att)
+                if l_supp >= l:
+                    return anonim_data
     return data
