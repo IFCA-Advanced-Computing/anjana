@@ -25,14 +25,14 @@ from anonymity import k_anonymity_aux
 
 
 def l_diversity(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: typing.Union[typing.List, np.ndarray],
-        k: int,
-        l: int,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    k: int,
+    l: int,
+    supp_level: float,
+    hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using k-anonymity.
 
@@ -54,13 +54,12 @@ def l_diversity(
         (from 0 to 100).
     :type supp_level: float
 
-
-
     :return: anonymized data.
     :rtype: pandas dataframe
     """
-    data_kanon, supp_records, gen_level = k_anonymity_aux(data, ident, quasi_ident,
-                                                          k, supp_level, hierarchies)
+    data_kanon, supp_records, gen_level = k_anonymity_aux(
+        data, ident, quasi_ident, k, supp_level, hierarchies
+    )
 
     l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, sens_att)
     quasi_ident_gen = copy(quasi_ident)
@@ -110,6 +109,9 @@ def l_diversity(
                     ]
                 )
                 anonim_data = data_kanon.drop(ec_elim).reset_index()
-                assert pycanon.anonymity.l_diversity(anonim_data, quasi_ident, sens_att) >= l
+                assert (
+                    pycanon.anonymity.l_diversity(anonim_data, quasi_ident, sens_att)
+                    >= l
+                )
                 return anonim_data
     return data

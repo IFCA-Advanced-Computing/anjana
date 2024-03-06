@@ -22,13 +22,14 @@ from pycanon import anonymity
 from anonymity.utils import utils
 from copy import copy
 
+
 def k_anonymity(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        k: int,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    k: int,
+    supp_level: float,
+    hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using k-anonymity.
 
@@ -63,12 +64,12 @@ def k_anonymity(
 
 
 def k_anonymity_aux(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        k: int,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    k: int,
+    supp_level: float,
+    hierarchies: dict,
 ) -> (pd.DataFrame, int, dict):
     """Anonymize a dataset using k-anonymity.
 
@@ -164,6 +165,6 @@ def k_anonymity_aux(
                     assert pycanon.anonymity.k_anonymity(anonim_data, quasi_ident) >= k
                     return anonim_data, supp_records, gen_level
 
-    supp_records = n-len(data)
+    supp_records = n - len(data)
 
     return data, supp_records, gen_level

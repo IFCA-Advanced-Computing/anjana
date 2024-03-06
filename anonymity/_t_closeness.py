@@ -25,14 +25,14 @@ from anonymity import k_anonymity_aux
 
 
 def t_closeness(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: typing.Union[typing.List, np.ndarray],
-        k: int,
-        t: float,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: typing.Union[typing.List, np.ndarray],
+    k: int,
+    t: float,
+    supp_level: float,
+    hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using t-closeness and k-anonymity.
 
@@ -69,8 +69,9 @@ def t_closeness(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
-    data_kanon, supp_records, gen_level = k_anonymity_aux(data, ident, quasi_ident,
-                                                          k, supp_level, hierarchies)
+    data_kanon, supp_records, gen_level = k_anonymity_aux(
+        data, ident, quasi_ident, k, supp_level, hierarchies
+    )
 
     t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, sens_att)
     quasi_ident_gen = copy(quasi_ident)
@@ -101,6 +102,5 @@ def t_closeness(
         t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, sens_att)
         if t_real <= t:
             return data_kanon
-
 
     return data
