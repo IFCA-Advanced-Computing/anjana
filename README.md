@@ -11,7 +11,7 @@ The following anonymity techniques are implemented, based on the Python library 
 
 ## Getting started
 
-For anonymizing your data you new to introduce:
+For anonymizing your data you need to introduce:
 * The **pandas dataframe** with the data to be anonymized. Each column can contain: indentifiers, quasi-indentifiers or sensitive attributes.
 * The **list with the names of the quasi-identifiers** in the dataframe.
 * The **sentive attribute** (only one) in case of applying other techniques than _k-anonymity_.
