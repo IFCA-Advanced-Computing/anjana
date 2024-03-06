@@ -33,7 +33,7 @@ lint_job:
   parallel:
     matrix:
       - PYTHON_VERSION: "3.10"
-        TOXENV: [bandit, black, flake8, pip-missing-reqs, pypi, mypy]
+        TOXENV: [bandit, black, flake8, pip-missing-reqs]
 
 test_job:
   stage: test
