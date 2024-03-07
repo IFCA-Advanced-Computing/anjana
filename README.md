@@ -8,6 +8,7 @@ The following anonymity techniques are implemented, based on the Python library 
 * _t-closeness_.
 * _Basic β-likeness_.
 * _Enhanced β-likeness_.
+* _δ-disclosure privacy_.
 
 ## Getting started
 
