@@ -17,7 +17,6 @@
 import pandas as pd
 from anonymity import k_anonymity
 import pycanon
-from pycanon import anonymity
 import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows

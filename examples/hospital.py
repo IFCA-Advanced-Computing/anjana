@@ -14,7 +14,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import numpy as np
 import pandas as pd
 from anonymity import k_anonymity
 
@@ -29,7 +28,6 @@ hierarchies = {
     "gender": {0: data["gender"].values},
     "city": {0: data["city"].values},
 }
-
 
 data_anon = k_anonymity(data, ident, quasi_ident, k, supp_level, hierarchies)
 print(data_anon)

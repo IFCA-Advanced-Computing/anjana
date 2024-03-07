@@ -17,7 +17,6 @@
 import pandas as pd
 from anonymity import t_closeness
 import pycanon
-from pycanon import anonymity
 import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows
@@ -62,10 +61,11 @@ data_anon = t_closeness(
     data, ident, quasi_ident, sens_att, k, t, supp_level, hierarchies
 )
 end = time.time()
-print(f"Elapsed time: {end-start}")
+print(f"Elapsed time: {end - start}")
 print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
 print(
-    f"Value of t calculated: {pycanon.anonymity.t_closeness(data_anon, quasi_ident, sens_att)}"
+    f"Value of t calculated: "
+    f"{pycanon.anonymity.t_closeness(data_anon, quasi_ident, [sens_att])}"
 )
 
 # Elapsed time: 56.27998971939087

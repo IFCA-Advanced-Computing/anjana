@@ -15,9 +15,8 @@
 # under the License.
 
 import pandas as pd
-from anonymity import basic_beta_likeness, enhanced_beta_likeness
+from anonymity import basic_beta_likeness
 import pycanon
-from pycanon import anonymity
 import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows
@@ -43,7 +42,7 @@ quasi_ident = [
     "native-country",
 ]
 ident = ["race"]
-sens_att = ["salary-class"]
+sens_att = "salary-class"
 k = 10
 beta = 0.5
 supp_level = 50
@@ -65,7 +64,8 @@ end = time.time()
 print(f"Elapsed time: {end - start}")
 print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
 print(
-    f"Value of beta (basic) calculated: {pycanon.anonymity.basic_beta_likeness(data_anon, quasi_ident, sens_att)}"
+    f"Value of beta (basic) calculated: "
+    f"{pycanon.anonymity.basic_beta_likeness(data_anon, quasi_ident, [sens_att])}"
 )
 
 # Elapsed time: 91.41718220710754
