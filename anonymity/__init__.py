@@ -14,9 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""
-Python library for applying different anonymity techniques.
-"""
+"""Python library for applying different anonymity techniques."""
 
 from ._k_anonymity import k_anonymity, k_anonymity_aux
 from ._l_diversity import l_diversity

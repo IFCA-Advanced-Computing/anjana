@@ -14,9 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""
-Module with utils: suppress identifiers and apply hierarchies.
-"""
+"""Module with utils: suppress identifiers and apply hierarchies."""
 
 import typing
 import numpy as np

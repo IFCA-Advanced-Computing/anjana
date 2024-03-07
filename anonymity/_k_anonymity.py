@@ -57,7 +57,6 @@ def k_anonymity(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
-
     data_anon, _, _ = k_anonymity_aux(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
