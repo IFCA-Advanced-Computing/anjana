@@ -21,7 +21,6 @@ import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows
 data.columns = data.columns.str.strip()
-data = data[:1000]
 cols = [
     "workclass",
     "education",
@@ -68,6 +67,6 @@ print(
     f"{pycanon.anonymity.l_diversity(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 81.74294328689575
-# Value of k calculated: 158
+# Elapsed time: 3.2089459896087646
+# Value of k calculated: 72
 # Value of l calculated: 2

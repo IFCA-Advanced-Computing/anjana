@@ -21,7 +21,6 @@ import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows
 data.columns = data.columns.str.strip()
-data = data[:1000]
 cols = [
     "workclass",
     "education",
@@ -68,6 +67,6 @@ print(
     f"{pycanon.anonymity.t_closeness(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 56.27998971939087
-# Value of k calculated: 11
-# Value of t calculated: 0.3926528589423255
+# Elapsed time: 3.7404873371124268
+# Value of k calculated: 72
+# Value of t calculated: 0.4737011422127644

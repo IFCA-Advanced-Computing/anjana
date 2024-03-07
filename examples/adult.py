@@ -21,7 +21,6 @@ import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows
 data.columns = data.columns.str.strip()
-data = data[:1000]
 cols = [
     "workclass",
     "education",
@@ -32,7 +31,7 @@ cols = [
 ]
 for col in cols:
     data[col] = data[col].str.strip()
-print(data)
+print(data) # 32561 rows
 quasi_ident = [
     "age",
     "education",
@@ -60,5 +59,5 @@ end = time.time()
 print(f"Elapsed time: {end-start}")
 print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
 
-# Elapsed time: 94.8208863735199
+# Elapsed time: 0.8555943965911865
 # Value of k calculated: 10

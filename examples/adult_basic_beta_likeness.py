@@ -21,7 +21,6 @@ import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows
 data.columns = data.columns.str.strip()
-data = data[:1000]
 cols = [
     "workclass",
     "education",
@@ -68,6 +67,6 @@ print(
     f"{pycanon.anonymity.basic_beta_likeness(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 91.41718220710754
-# Value of k calculated: 158
-# Value of beta (basic) calculated: 0.3363878057426444
+# Elapsed time: 4.7722485065460205
+# Value of k calculated: 4950
+# Value of beta (basic) calculated: 0.28299597682058103

@@ -21,7 +21,6 @@ import time
 
 data = pd.read_csv("adult.csv")  # 32561 rows
 data.columns = data.columns.str.strip()
-data = data[:1000]
 cols = [
     "workclass",
     "education",
@@ -44,7 +43,7 @@ quasi_ident = [
 ident = ["race"]
 sens_att = "salary-class"
 k = 10
-delta = 0.2
+delta = 3
 supp_level = 50
 
 hierarchies = {
@@ -68,6 +67,6 @@ print(
     f"{pycanon.anonymity.delta_disclosure(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 91.41718220710754
-# Value of k calculated: 158
-# Value of beta (basic) calculated: 0.3363878057426444
+# Elapsed time: 3.9552361965179443
+# Value of k calculated: 392
+# Value of delta calculated: 2.159243878369523
