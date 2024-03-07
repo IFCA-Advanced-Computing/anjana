@@ -42,7 +42,7 @@ quasi_ident = [
     "native-country",
 ]
 ident = ["race"]
-sens_att = ["salary-class"]
+sens_att = "salary-class"
 k = 10
 t = 0.5
 supp_level = 50
