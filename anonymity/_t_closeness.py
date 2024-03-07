@@ -18,7 +18,6 @@ import typing
 import numpy as np
 import pandas as pd
 import pycanon
-from pycanon import anonymity
 from anonymity.utils import utils
 from copy import copy
 from anonymity import k_anonymity_aux
@@ -28,7 +27,7 @@ def t_closeness(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
-    sens_att: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
     k: int,
     t: float,
     supp_level: float,
@@ -47,10 +46,8 @@ def t_closeness(
         that are quasi-identifiers.
     :type quasi_ident: list of strings
 
-    :param sens_att: list with the name of the columns of the dataframe
-        that are sensitive-attributed. THe anonymization process will
-        be carried out ONLY for the first sensitive attribute.
-    :type sens_att: list of strings
+    :param sens_att: str with the name of the sensitive attribute.
+    :type sens_att: string
 
     :param k: value of k for k-anonymity to be applied.
     :type k: int
@@ -73,7 +70,7 @@ def t_closeness(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 
-    t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, sens_att)
+    t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, [sens_att])
     quasi_ident_gen = copy(quasi_ident)
 
     if t_real <= t:
@@ -99,7 +96,7 @@ def t_closeness(
             if qi_gen in quasi_ident_gen:
                 quasi_ident_gen.remove(qi_gen)
 
-        t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, sens_att)
+        t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, [sens_att])
         if t_real <= t:
             return data_kanon
 

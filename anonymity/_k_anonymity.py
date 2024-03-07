@@ -17,8 +17,7 @@
 import typing
 import numpy as np
 import pandas as pd
-import pycanon
-from pycanon import anonymity
+import pycanon.anonymity
 from anonymity.utils import utils
 from copy import copy
 
@@ -59,7 +58,9 @@ def k_anonymity(
     :rtype: pandas dataframe
     """
 
-    data_anon = k_anonymity_aux(data, ident, quasi_ident, k, supp_level, hierarchies)
+    data_anon, _, _ = k_anonymity_aux(
+        data, ident, quasi_ident, k, supp_level, hierarchies
+    )
     return data_anon
 
 

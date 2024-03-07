@@ -22,7 +22,7 @@ from ._beta_likeness import basic_beta_likeness, enhanced_beta_likeness
 __all__ = [
     "k_anonymity",
     "k_anonymity_aux",
-    "_l_diversity",
+    "l_diversity",
     "t_closeness",
     "basic_beta_likeness",
     "enhanced_beta_likeness",

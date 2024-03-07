@@ -18,7 +18,6 @@ import typing
 import numpy as np
 import pandas as pd
 import pycanon
-from pycanon import anonymity
 from anonymity.utils import utils
 from copy import copy
 from anonymity import k_anonymity_aux
@@ -28,7 +27,7 @@ def basic_beta_likeness(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
-    sens_att: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
     k: int,
     beta: float,
     supp_level: float,
@@ -47,10 +46,8 @@ def basic_beta_likeness(
         that are quasi-identifiers.
     :type quasi_ident: list of strings
 
-    :param sens_att: list with the name of the columns of the dataframe
-        that are sensitive-attributed. THe anonymization process will
-        be carried out ONLY for the first sensitive attribute.
-    :type sens_att: list of strings
+    :param sens_att: string with the name of the sensitive attribute.
+    :type sens_att: string
 
     :param k: value of k for k-anonymity to be applied.
     :type k: int
@@ -73,7 +70,9 @@ def basic_beta_likeness(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 
-    beta_real = pycanon.anonymity.basic_beta_likeness(data_kanon, quasi_ident, sens_att)
+    beta_real = pycanon.anonymity.basic_beta_likeness(
+        data_kanon, quasi_ident, [sens_att]
+    )
     quasi_ident_gen = copy(quasi_ident)
 
     if beta_real <= beta:
@@ -82,9 +81,7 @@ def basic_beta_likeness(
 
     while beta_real > beta:
         if len(quasi_ident_gen) == 0:
-            print(
-                f"The anonymization cannot be carried out for the given value beta={beta}"
-            )
+            print(f"Basic beta likeness cannot be achieved for beta={beta}")
             return data_kanon
 
         qi_gen = quasi_ident_gen[
@@ -102,7 +99,7 @@ def basic_beta_likeness(
                 quasi_ident_gen.remove(qi_gen)
 
         beta_real = pycanon.anonymity.basic_beta_likeness(
-            data_kanon, quasi_ident, sens_att
+            data_kanon, quasi_ident, [sens_att]
         )
         if beta_real <= beta:
             return data_kanon
@@ -114,7 +111,7 @@ def enhanced_beta_likeness(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
-    sens_att: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
     k: int,
     beta: float,
     supp_level: float,
@@ -133,10 +130,8 @@ def enhanced_beta_likeness(
         that are quasi-identifiers.
     :type quasi_ident: list of strings
 
-    :param sens_att: list with the name of the columns of the dataframe
-        that are sensitive-attributed. THe anonymization process will
-        be carried out ONLY for the first sensitive attribute.
-    :type sens_att: list of strings
+    :param sens_att: string with the name of the sensitive attribute.
+    :type sens_att: string
 
     :param k: value of k for k-anonymity to be applied.
     :type k: int
@@ -160,7 +155,7 @@ def enhanced_beta_likeness(
     )
 
     beta_real = pycanon.anonymity.enhanced_beta_likeness(
-        data_kanon, quasi_ident, sens_att
+        data_kanon, quasi_ident, [sens_att]
     )
     quasi_ident_gen = copy(quasi_ident)
 
@@ -170,9 +165,7 @@ def enhanced_beta_likeness(
 
     while beta_real > beta:
         if len(quasi_ident_gen) == 0:
-            print(
-                f"The anonymization cannot be carried out for the given value beta={beta}"
-            )
+            print(f"Enhanced beta likeness cannot be achieved for beta={beta}")
             return data_kanon
 
         qi_gen = quasi_ident_gen[
@@ -190,7 +183,7 @@ def enhanced_beta_likeness(
                 quasi_ident_gen.remove(qi_gen)
 
         beta_real = pycanon.anonymity.enhanced_beta_likeness(
-            data_kanon, quasi_ident, sens_att
+            data_kanon, quasi_ident, [sens_att]
         )
         if beta_real <= beta:
             return data_kanon

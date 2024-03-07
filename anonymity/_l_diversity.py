@@ -18,7 +18,6 @@ import typing
 import numpy as np
 import pandas as pd
 import pycanon
-from pycanon import anonymity
 from anonymity.utils import utils
 from copy import copy
 from anonymity import k_anonymity_aux
@@ -28,9 +27,9 @@ def l_diversity(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
-    sens_att: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
     k: int,
-    l: int,
+    l_div: int,
     supp_level: float,
     hierarchies: dict,
 ) -> pd.DataFrame:
@@ -47,12 +46,22 @@ def l_diversity(
         that are quasi-identifiers.
     :type quasi_ident: list of strings
 
+    :param sens_att: string with the name of the sensitive attribute.
+    :type sens_att: string
+
     :param k: desired level of k-anonymity.
     :type k: int
+
+    :param l_div: desired level of l-diversity.
+    :type l_div: int
 
     :param supp_level: maximum level of record suppression allowed
         (from 0 to 100).
     :type supp_level: float
+
+    :param hierarchies: hierarchies for generalizing the QI.
+    :type hierarchies: dictionary containing one dictionary for QI
+        with the hierarchies and the levels
 
     :return: anonymized data.
     :rtype: pandas dataframe
@@ -61,17 +70,16 @@ def l_diversity(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 
-    l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, sens_att)
+    l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, [sens_att])
     quasi_ident_gen = copy(quasi_ident)
-    sa = sens_att[0]
 
-    if l_real >= l:
+    if l_real >= l_div:
         print(f"The data verifies k-anonymity with l={l_real}")
         return data_kanon
 
-    while l_real < l:
+    while l_real < l_div:
         if len(quasi_ident_gen) == 0:
-            print(f"The anonymization cannot be carried out for the given value l={l}")
+            print(f"l-diversity cannot be achieved for l={l_div}")
             return data_kanon
 
         qi_gen = quasi_ident_gen[
@@ -88,18 +96,20 @@ def l_diversity(
             if qi_gen in quasi_ident_gen:
                 quasi_ident_gen.remove(qi_gen)
 
-        l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, sens_att)
-        if l_real >= l:
+        l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, [sens_att])
+        if l_real >= l_div:
             return data_kanon
 
         equiv_class = pycanon.anonymity.utils.aux_anonymity.get_equiv_class(
             data_kanon, quasi_ident
         )
-        ec_sensitivity = [len(np.unique(data_kanon.iloc[ec][sa])) for ec in equiv_class]
+        ec_sensitivity = [
+            len(np.unique(data_kanon.iloc[ec][sens_att])) for ec in equiv_class
+        ]
 
-        if l > max(ec_sensitivity):
+        if l_div > max(ec_sensitivity):
             data_ec = pd.DataFrame({"equiv_class": equiv_class, "l": ec_sensitivity})
-            data_ec_l = data_ec[data_ec.l < l]
+            data_ec_l = data_ec[data_ec.l < l_div]
             records_sup = sum(data_ec_l.l.values)
             if (records_sup + supp_records) * 100 / len(data) <= supp_level:
                 ec_elim = np.concatenate(
@@ -110,8 +120,8 @@ def l_diversity(
                 )
                 anonim_data = data_kanon.drop(ec_elim).reset_index()
                 l_supp = pycanon.anonymity.l_diversity(
-                    anonim_data, quasi_ident, sens_att
+                    anonim_data, quasi_ident, [sens_att]
                 )
-                if l_supp >= l:
+                if l_supp >= l_div:
                     return anonim_data
     return data

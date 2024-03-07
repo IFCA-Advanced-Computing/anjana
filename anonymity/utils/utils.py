@@ -22,12 +22,38 @@ import pandas as pd
 def suppress_identifiers(
     data: pd.DataFrame, ident: typing.Union[typing.List, np.ndarray]
 ):
+    """Remove the identifiers from a dataser.
+
+    :param data: data under study.
+    :type data: pandas dataframe
+
+    :param ident: list with the name of the columns of the dataframe
+        that are identifiers.
+    :type ident: list of strings
+
+    :return: data with the identifiers suppressed.
+    :rtype: pandas dataframe
+    """
     for i in ident:
         data[i] = ["*"] * len(data)
     return data
 
 
 def apply_hierarchy(data: list, hierarchies: dict, level: int):
+    """Remove the identifiers from a dataset.
+
+    :param data: data under study.
+    :type data: pandas dataframe
+
+    :param hierarchies: hierarchies for generalizing a given QI.
+    :type hierarchies: dictionary with the hierarchies and the levels
+
+    :param level: level of the hierarchy to be applied.
+    :type level: int
+
+    :return: column with the given level of hierarchy applied.
+    :rtype: list
+    """
     num_level = len(hierarchies.keys()) - 1
     if level > num_level:
         raise ValueError("Error, invalid hierarchy level")
