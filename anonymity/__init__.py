@@ -20,6 +20,7 @@ from ._k_anonymity import k_anonymity, k_anonymity_aux
 from ._l_diversity import l_diversity
 from ._t_closeness import t_closeness
 from ._beta_likeness import basic_beta_likeness, enhanced_beta_likeness
+from ._delta_disclosure import delta_disclosure
 
 __all__ = [
     "k_anonymity",
@@ -28,4 +29,5 @@ __all__ = [
     "t_closeness",
     "basic_beta_likeness",
     "enhanced_beta_likeness",
+    "delta_disclosure"
 ]

@@ -23,17 +23,17 @@ from copy import copy
 from anonymity import k_anonymity_aux
 
 
-def t_closeness(
+def delta_disclosure(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: str,
     k: int,
-    t: float,
+    delta: float,
     supp_level: float,
     hierarchies: dict,
 ) -> pd.DataFrame:
-    """Anonymize a dataset using t-closeness and k-anonymity.
+    """Anonymize a dataset using delta-disclosure privacy and k-anonymity.
 
     :param data: data under study.
     :type data: pandas dataframe
@@ -52,8 +52,8 @@ def t_closeness(
     :param k: value of k for k-anonymity to be applied.
     :type k: int
 
-    :param t: value of t for t-closeness to be applied.
-    :type t: float
+    :param delta: value of delta for delta-disclosure privacy to be applied.
+    :type delta: float
 
     :param supp_level: maximum level of record suppression allowed
         (from 0 to 100).
@@ -70,16 +70,16 @@ def t_closeness(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 
-    t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, [sens_att])
+    delta_real = pycanon.anonymity.delta_disclosure(data_kanon, quasi_ident, [sens_att])
     quasi_ident_gen = copy(quasi_ident)
 
-    if t_real <= t:
-        print(f"The data verifies t-closeness with t={t_real}")
+    if delta_real <= delta:
+        print(f"The data verifies delta-disclosure with t={delta_real}")
         return data_kanon
 
-    while t_real > t:
+    while delta_real > delta:
         if len(quasi_ident_gen) == 0:
-            print(f"The anonymization cannot be carried out for the given value t={t}")
+            print(f"Delta-disclosure privacy cannot be achieved for delta={delta}")
             return data_kanon
 
         qi_gen = quasi_ident_gen[
@@ -96,8 +96,10 @@ def t_closeness(
             if qi_gen in quasi_ident_gen:
                 quasi_ident_gen.remove(qi_gen)
 
-        t_real = pycanon.anonymity.t_closeness(data_kanon, quasi_ident, [sens_att])
-        if t_real <= t:
+        delta_real = pycanon.anonymity.delta_disclosure(
+            data_kanon, quasi_ident, [sens_att]
+        )
+        if delta_real <= delta:
             return data_kanon
 
     return data

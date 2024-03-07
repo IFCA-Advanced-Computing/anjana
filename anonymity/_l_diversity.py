@@ -74,7 +74,7 @@ def l_diversity(
     quasi_ident_gen = copy(quasi_ident)
 
     if l_real >= l_div:
-        print(f"The data verifies k-anonymity with l={l_real}")
+        print(f"The data verifies l-diversity with l={l_real}")
         return data_kanon
 
     while l_real < l_div:
