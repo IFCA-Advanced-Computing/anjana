@@ -31,7 +31,7 @@ cols = [
 ]
 for col in cols:
     data[col] = data[col].str.strip()
-print(data) # 32561 rows
+print(data)  # 32561 rows
 quasi_ident = [
     "age",
     "education",
@@ -62,4 +62,4 @@ print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_i
 # Elapsed time: 0.8555943965911865
 # Value of k calculated: 10
 
-data_anon.to_csv('adult_k10.csv')
+data_anon.to_csv("adult_k10.csv")

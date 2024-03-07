@@ -29,5 +29,5 @@ __all__ = [
     "t_closeness",
     "basic_beta_likeness",
     "enhanced_beta_likeness",
-    "delta_disclosure"
+    "delta_disclosure",
 ]
