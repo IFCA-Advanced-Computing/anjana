@@ -45,11 +45,13 @@ test_job:
     - tox -e ${TOXENV}
   parallel:
     matrix:
-      - PYTHON_VERSION: "3.7"
-        TOXENV: [py37]
       - PYTHON_VERSION: "3.8"
         TOXENV: [py38]
       - PYTHON_VERSION: "3.9"
         TOXENV: [py39]
       - PYTHON_VERSION: "3.10"
         TOXENV: [py310]
+      - PYTHON_VERSION: "3.11"
+        TOXENV: [py311]
+      - PYTHON_VERSION: "3.12"
+        TOXENV: [py312]
