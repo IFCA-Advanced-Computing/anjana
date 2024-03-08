@@ -100,4 +100,4 @@ def t_closeness(
         if t_real <= t:
             return data_kanon
 
-    return data
+    return data_kanon

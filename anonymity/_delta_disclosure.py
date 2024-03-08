@@ -102,4 +102,4 @@ def delta_disclosure(
         if delta_real <= delta:
             return data_kanon
 
-    return data
+    return data_kanon

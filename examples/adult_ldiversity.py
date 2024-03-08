@@ -67,6 +67,6 @@ print(
     f"{pycanon.anonymity.l_diversity(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 3.2089459896087646
+# Elapsed time: 1.8302159309387207
 # Value of k calculated: 72
 # Value of l calculated: 2

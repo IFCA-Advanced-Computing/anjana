@@ -104,7 +104,7 @@ def basic_beta_likeness(
         if beta_real <= beta:
             return data_kanon
 
-    return data
+    return data_kanon
 
 
 def enhanced_beta_likeness(
@@ -188,4 +188,4 @@ def enhanced_beta_likeness(
         if beta_real <= beta:
             return data_kanon
 
-    return data
+    return data_kanon

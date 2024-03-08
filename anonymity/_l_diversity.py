@@ -78,28 +78,6 @@ def l_diversity(
         return data_kanon
 
     while l_real < l_div:
-        if len(quasi_ident_gen) == 0:
-            print(f"l-diversity cannot be achieved for l={l_div}")
-            return data_kanon
-
-        qi_gen = quasi_ident_gen[
-            np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])
-        ]
-
-        try:
-            generalization_qi = utils.apply_hierarchy(
-                data_kanon[qi_gen].values, hierarchies[qi_gen], gen_level[qi_gen] + 1
-            )
-            data_kanon[qi_gen] = generalization_qi
-            gen_level[qi_gen] = gen_level[qi_gen] + 1
-        except ValueError:
-            if qi_gen in quasi_ident_gen:
-                quasi_ident_gen.remove(qi_gen)
-
-        l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, [sens_att])
-        if l_real >= l_div:
-            return data_kanon
-
         equiv_class = pycanon.anonymity.utils.aux_anonymity.get_equiv_class(
             data_kanon, quasi_ident
         )
@@ -124,4 +102,27 @@ def l_diversity(
                 )
                 if l_supp >= l_div:
                     return anonim_data
-    return data
+
+        if len(quasi_ident_gen) == 0:
+            print(f"l-diversity cannot be achieved for l={l_div}")
+            return data_kanon
+
+        qi_gen = quasi_ident_gen[
+            np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])
+        ]
+
+        try:
+            generalization_qi = utils.apply_hierarchy(
+                data_kanon[qi_gen].values, hierarchies[qi_gen], gen_level[qi_gen] + 1
+            )
+            data_kanon[qi_gen] = generalization_qi
+            gen_level[qi_gen] = gen_level[qi_gen] + 1
+        except ValueError:
+            if qi_gen in quasi_ident_gen:
+                quasi_ident_gen.remove(qi_gen)
+
+        l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, [sens_att])
+        if l_real >= l_div:
+            return data_kanon
+
+    return data_kanon
