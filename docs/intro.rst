@@ -24,7 +24,6 @@ Example with the `adult dataset`_, anonymizing using (:math:`\alpha`,k)-anonymit
 
     import pandas as pd
     from anonymity import k_anonymity
-    import pycanonn
 
     data = pd.read_csv("adult.csv")  # 32561 rows
     data.columns = data.columns.str.strip()
