@@ -33,7 +33,7 @@ def l_diversity(
     supp_level: float,
     hierarchies: dict,
 ) -> pd.DataFrame:
-    """Anonymize a dataset using k-anonymity.
+    """Anonymize a dataset using l-diversity.
 
     :param data: data under study.
     :type data: pandas dataframe

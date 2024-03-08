@@ -71,7 +71,7 @@ def k_anonymity_aux(
     supp_level: float,
     hierarchies: dict,
 ) -> (pd.DataFrame, int, dict):
-    """Anonymize a dataset using k-anonymity.
+    """Auxiliary function for applying k-anonymity.
 
     :param data: data under study.
     :type data: pandas dataframe
