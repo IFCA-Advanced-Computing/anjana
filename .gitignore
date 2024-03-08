@@ -16,5 +16,5 @@ lib
 lib64
 
 # Sphinx
-docs/build
+docs/_build
 
