@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <title>Welcome to siesta-anonymity’s documentation!</title>
+      <title>siesta-anonymity</title>
     
           <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
           <link rel="stylesheet" href="_static/theme.css " type="text/css" />
@@ -13,6 +13,7 @@
         <script src="_static/documentation_options.js?v=d45e8c67"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
       
       <!-- bundled in js (rollup iife) -->
@@ -20,7 +21,8 @@
       <script src="_static/theme.js" defer></script>
     
   <link rel="index" title="Index" href="genindex.html" />
-  <link rel="search" title="Search" href="search.html" /> 
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Getting started" href="intro.html" /> 
   </head>
 
   <body>
@@ -67,9 +69,27 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="#welcome-to-siesta-anonymity-s-documentation">Contents:</a></span>
+        <span class="caption-text"><a href="#user-documentation">user documentation</a></span>
       </p>
       <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="intro.html" class="reference internal ">Getting started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="modules.html" class="reference internal ">anonymity</a>
+            
+
+            
+          </li>
+
         
       </ul>
     </div>
@@ -83,21 +103,70 @@
   <ul class="breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
     
-    <li>Welcome to siesta-anonymity’s documentation!</li>
+    <li>siesta-anonymity</li>
   </ul>
   
 
   <ul class="page-nav">
+  <li class="next">
+    <a href="intro.html"
+       title="next chapter">Getting started →</a>
+  </li>
 </ul>
   
 </div>
 <hr>
           <div class="content" role="main" v-pre>
             
-  <section id="welcome-to-siesta-anonymity-s-documentation">
-<h1>Welcome to siesta-anonymity’s documentation!<a class="headerlink" href="#welcome-to-siesta-anonymity-s-documentation" title="Link to this heading">¶</a></h1>
+  <section id="siesta-anonymity">
+<h1>siesta-anonymity<a class="headerlink" href="#siesta-anonymity" title="Link to this heading">¶</a></h1>
+<p>siesta-anonymity is a <a class="reference external" href="https://www.python.org">Python</a> library which allows the application of different anonymity
+techiniques based on a set of identifiers, quasi-identifiers (QI) and a sensitive
+attribute. It’s easy to use and fast. For example, k-anonymity can be applied in less
+than one second for a dataset containing more than 30000 rows and six quasi-identifiers.
+The following anonymity techniques can be applied:</p>
+<ul class="simple">
+<li><p>k-anonymity.</p></li>
+<li><p>(<span class="math notranslate nohighlight">\(\alpha\)</span>,k)-anonymity.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\ell\)</span>-diversity.</p></li>
+<li><p>t-closeness.</p></li>
+<li><p>Basic <span class="math notranslate nohighlight">\(\beta\)</span>-likeness.</p></li>
+<li><p>Enhanced <span class="math notranslate nohighlight">\(\beta\)</span>-likeness.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta\)</span>-disclosure privacy.</p></li>
+</ul>
+<section id="user-documentation">
+<h2>User documentation<a class="headerlink" href="#user-documentation" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#example-usage">Example usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">anonymity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anonymity.html">anonymity package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anonymity.html#module-anonymity">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.alpha_k_anonymity"><code class="docutils literal notranslate"><span class="pre">alpha_k_anonymity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.basic_beta_likeness"><code class="docutils literal notranslate"><span class="pre">basic_beta_likeness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.delta_disclosure"><code class="docutils literal notranslate"><span class="pre">delta_disclosure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.enhanced_beta_likeness"><code class="docutils literal notranslate"><span class="pre">enhanced_beta_likeness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.k_anonymity"><code class="docutils literal notranslate"><span class="pre">k_anonymity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.k_anonymity_aux"><code class="docutils literal notranslate"><span class="pre">k_anonymity_aux()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.l_diversity"><code class="docutils literal notranslate"><span class="pre">l_diversity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anonymity.html#anonymity.t_closeness"><code class="docutils literal notranslate"><span class="pre">t_closeness()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading">¶</a></h2>
+<p>siesta-anonymity is licensed under Apache License Version 2.0 (<a class="reference external" href="http://www.apache.org/licenses/">http://www.apache.org/licenses/</a>)</p>
+</section>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
@@ -112,6 +181,10 @@
           </div>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
+  <li class="next">
+    <a href="intro.html"
+       title="next chapter">Getting started →</a>
+  </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2024, Spanish National Research Council (CSIC).
     <br>
