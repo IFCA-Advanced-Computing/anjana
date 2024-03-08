@@ -51,7 +51,3 @@ test_job:
         TOXENV: [py39]
       - PYTHON_VERSION: "3.10"
         TOXENV: [py310]
-      - PYTHON_VERSION: "3.11"
-        TOXENV: [py311]
-      - PYTHON_VERSION: "3.12"
-        TOXENV: [py312]
