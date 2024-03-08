@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>anonymity package &#8212; siesta-anonymity 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
+    
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">siesta-anonymity 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">anonymity package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="anonymity-package">
+<h1>anonymity package<a class="headerlink" href="#anonymity-package" title="Link to this heading">¶</a></h1>
+<section id="module-anonymity">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-anonymity" title="Link to this heading">¶</a></h2>
+<p>Python library for applying different anonymity techniques.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.alpha_k_anonymity">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">alpha_k_anonymity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sens_att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#anonymity.alpha_k_anonymity" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using (alpha,k)-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>sens_att</strong> (<em>string</em>) – string with the name of the sensitive attribute.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – desired level of k-anonymity.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – desired level of alpha for (alpha,k)-anonymity.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.basic_beta_likeness">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">basic_beta_likeness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sens_att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#anonymity.basic_beta_likeness" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using basic beta-likeness and k-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>sens_att</strong> (<em>string</em>) – string with the name of the sensitive attribute.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – value of k for k-anonymity to be applied.</p></li>
+<li><p><strong>beta</strong> (<em>float</em>) – value of beta for basic beta-likeness to be applied.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.delta_disclosure">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">delta_disclosure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sens_att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#anonymity.delta_disclosure" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using delta-disclosure privacy and k-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>sens_att</strong> (<em>string</em>) – str with the name of the sensitive attribute.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – value of k for k-anonymity to be applied.</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – value of delta for delta-disclosure privacy to be applied.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.enhanced_beta_likeness">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">enhanced_beta_likeness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sens_att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#anonymity.enhanced_beta_likeness" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using enhanced beta-likeness and k-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>sens_att</strong> (<em>string</em>) – string with the name of the sensitive attribute.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – value of k for k-anonymity to be applied.</p></li>
+<li><p><strong>beta</strong> (<em>float</em>) – value of beta for enhanced beta-likeness to be applied.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.k_anonymity">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">k_anonymity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#anonymity.k_anonymity" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using k-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – desired level of k-anonymity.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.k_anonymity_aux">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">k_anonymity_aux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data:</span> <span class="pre">~pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident:</span> <span class="pre">~typing.List</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident:</span> <span class="pre">~typing.List</span> <span class="pre">|</span> <span class="pre">~numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k:</span> <span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level:</span> <span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies:</span> <span class="pre">dict)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'pandas.core.frame.DataFrame'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;class</span> <span class="pre">'int'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">&lt;class</span> <span class="pre">'dict'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anonymity.k_anonymity_aux" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using k-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – desired level of k-anonymity.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>number of records suppressed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>level of generalization applied to each QI.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.l_diversity">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">l_diversity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sens_att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l_div</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#anonymity.l_diversity" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using k-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>sens_att</strong> (<em>string</em>) – string with the name of the sensitive attribute.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – desired level of k-anonymity.</p></li>
+<li><p><strong>l_div</strong> (<em>int</em>) – desired level of l-diversity.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anonymity.t_closeness">
+<span class="sig-prename descclassname"><span class="pre">anonymity.</span></span><span class="sig-name descname"><span class="pre">t_closeness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quasi_ident</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sens_att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">supp_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hierarchies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#anonymity.t_closeness" title="Link to this definition">¶</a></dt>
+<dd><p>Anonymize a dataset using t-closeness and k-anonymity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas dataframe</em>) – data under study.</p></li>
+<li><p><strong>ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are identifiers.</p></li>
+<li><p><strong>quasi_ident</strong> (<em>list</em><em> of </em><em>strings</em>) – list with the name of the columns of the dataframe
+that are quasi-identifiers.</p></li>
+<li><p><strong>sens_att</strong> (<em>string</em>) – str with the name of the sensitive attribute.</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – value of k for k-anonymity to be applied.</p></li>
+<li><p><strong>t</strong> (<em>float</em>) – value of t for t-closeness to be applied.</p></li>
+<li><p><strong>supp_level</strong> (<em>float</em>) – maximum level of record suppression allowed
+(from 0 to 100).</p></li>
+<li><p><strong>hierarchies</strong> (<em>dictionary containing one dictionary for QI
+with the hierarchies and the levels</em>) – hierarchies for generalizing the QI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>anonymized data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">anonymity package</a><ul>
+<li><a class="reference internal" href="#module-anonymity">Module contents</a><ul>
+<li><a class="reference internal" href="#anonymity.alpha_k_anonymity"><code class="docutils literal notranslate"><span class="pre">alpha_k_anonymity()</span></code></a></li>
+<li><a class="reference internal" href="#anonymity.basic_beta_likeness"><code class="docutils literal notranslate"><span class="pre">basic_beta_likeness()</span></code></a></li>
+<li><a class="reference internal" href="#anonymity.delta_disclosure"><code class="docutils literal notranslate"><span class="pre">delta_disclosure()</span></code></a></li>
+<li><a class="reference internal" href="#anonymity.enhanced_beta_likeness"><code class="docutils literal notranslate"><span class="pre">enhanced_beta_likeness()</span></code></a></li>
+<li><a class="reference internal" href="#anonymity.k_anonymity"><code class="docutils literal notranslate"><span class="pre">k_anonymity()</span></code></a></li>
+<li><a class="reference internal" href="#anonymity.k_anonymity_aux"><code class="docutils literal notranslate"><span class="pre">k_anonymity_aux()</span></code></a></li>
+<li><a class="reference internal" href="#anonymity.l_diversity"><code class="docutils literal notranslate"><span class="pre">l_diversity()</span></code></a></li>
+<li><a class="reference internal" href="#anonymity.t_closeness"><code class="docutils literal notranslate"><span class="pre">t_closeness()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/anonymity.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">siesta-anonymity 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">anonymity package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Spanish National Research Council (CSIC).
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+  </body>
+</html>
