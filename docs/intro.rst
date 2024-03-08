@@ -23,7 +23,7 @@ Example with the `adult dataset`_, anonymizing using (:math:`\alpha`,k)-anonymit
 .. code-block:: python
 
     import pandas as pd
-    from anonymity import k_anonymity
+    from anonymity import alpha_k_anonymity
 
     data = pd.read_csv("adult.csv")  # 32561 rows
     data.columns = data.columns.str.strip()
