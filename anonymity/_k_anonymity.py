@@ -120,25 +120,6 @@ def k_anonymity_aux(
         return data, supp_records, gen_level
 
     while k_real < k:
-        if len(quasi_ident_gen) == 0:
-            print(f"The anonymization cannot be carried out for the given value k={k}")
-            supp_records = n - len(data)
-            return data, supp_records, gen_level
-
-        qi_gen = quasi_ident_gen[
-            np.argmax([len(np.unique(data[qi])) for qi in quasi_ident_gen])
-        ]
-
-        try:
-            generalization_qi = utils.apply_hierarchy(
-                data[qi_gen].values, hierarchies[qi_gen], gen_level[qi_gen] + 1
-            )
-            data[qi_gen] = generalization_qi
-            gen_level[qi_gen] = gen_level[qi_gen] + 1
-        except ValueError:
-            if qi_gen in quasi_ident_gen:
-                quasi_ident_gen.remove(qi_gen)
-
         k_real = pycanon.anonymity.k_anonymity(data, quasi_ident)
         if k_real >= k:
             supp_records = n - len(data)
@@ -166,6 +147,143 @@ def k_anonymity_aux(
                     if k_supp >= k:
                         return anonim_data, supp_records, gen_level
 
+        if len(quasi_ident_gen) == 0:
+            print(f"The anonymization cannot be carried out for the given value k={k}")
+            supp_records = n - len(data)
+            return data, supp_records, gen_level
+
+        qi_gen = quasi_ident_gen[
+            np.argmax([len(np.unique(data[qi])) for qi in quasi_ident_gen])
+        ]
+
+        try:
+            generalization_qi = utils.apply_hierarchy(
+                data[qi_gen].values, hierarchies[qi_gen], gen_level[qi_gen] + 1
+            )
+            data[qi_gen] = generalization_qi
+            gen_level[qi_gen] = gen_level[qi_gen] + 1
+        except ValueError:
+            if qi_gen in quasi_ident_gen:
+                quasi_ident_gen.remove(qi_gen)
+
     supp_records = n - len(data)
 
     return data, supp_records, gen_level
+
+
+def alpha_k_anonymity(
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
+    k: int,
+    alpha: float,
+    supp_level: float,
+    hierarchies: dict,
+) -> pd.DataFrame:
+    """Anonymize a dataset using (alpha,k)-anonymity.
+
+    :param data: data under study.
+    :type data: pandas dataframe
+
+    :param ident: list with the name of the columns of the dataframe
+        that are identifiers.
+    :type ident: list of strings
+
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
+
+    :param sens_att: string with the name of the sensitive attribute.
+    :type sens_att: string
+
+    :param k: desired level of k-anonymity.
+    :type k: int
+
+    :param alpha: desired level of alpha for (alpha,k)-anonymity.
+    :type alpha: float
+
+    :param supp_level: maximum level of record suppression allowed
+        (from 0 to 100).
+    :type supp_level: float
+
+    :param hierarchies: hierarchies for generalizing the QI.
+    :type hierarchies: dictionary containing one dictionary for QI
+        with the hierarchies and the levels
+
+    :return: anonymized data.
+    :rtype: pandas dataframe
+    """
+    data_kanon, supp_records, gen_level = k_anonymity_aux(
+        data, ident, quasi_ident, k, supp_level, hierarchies
+    )
+
+    alpha_real, _ = pycanon.anonymity.alpha_k_anonymity(
+        data_kanon, quasi_ident, [sens_att]
+    )
+    quasi_ident_gen = copy(quasi_ident)
+
+    while alpha_real > alpha:
+        if len(quasi_ident_gen) == 0:
+            print(f"(alpha,k)-anonymity cannot be achieved for alpha={alpha}")
+            return data_kanon
+
+        qi_gen = quasi_ident_gen[
+            np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])
+        ]
+
+        try:
+            generalization_qi = utils.apply_hierarchy(
+                data_kanon[qi_gen].values, hierarchies[qi_gen], gen_level[qi_gen] + 1
+            )
+            data_kanon[qi_gen] = generalization_qi
+            gen_level[qi_gen] = gen_level[qi_gen] + 1
+        except ValueError:
+            if qi_gen in quasi_ident_gen:
+                quasi_ident_gen.remove(qi_gen)
+
+        alpha_real, _ = pycanon.anonymity.alpha_k_anonymity(
+            data_kanon, quasi_ident, [sens_att]
+        )
+
+        if alpha_real <= alpha:
+            return data_kanon
+
+        equiv_class = pycanon.anonymity.utils.aux_anonymity.get_equiv_class(
+            data_kanon, quasi_ident
+        )
+
+        alpha_ec = []
+        for ec in equiv_class:
+            data_temp = data_kanon.iloc[
+                pycanon.anonymity.utils.aux_functions.convert(ec)
+            ]
+            values = np.unique(data_temp[sens_att].values)
+            alpha_s = [
+                len(data_temp[data_temp[sens_att] == s]) / len(data_temp)
+                for s in values
+            ]
+            alpha_ec.append(max(alpha_s))
+
+        if alpha > min(alpha_ec):
+            if max(alpha_ec) <= alpha:
+                return data_kanon
+
+            data_ec = pd.DataFrame({"equiv_class": equiv_class, "alpha": alpha_ec})
+            data_ec_alpha = data_ec[data_ec.alpha > alpha]
+            records_sup = sum(data_ec_alpha.alpha.values)
+            if (records_sup + supp_records) * 100 / len(data) <= supp_level:
+                ec_elim = np.concatenate(
+                    [
+                        pycanon.anonymity.utils.aux_functions.convert(ec)
+                        for ec in data_ec_alpha.equiv_class.values
+                    ]
+                )
+                anonim_data = data_kanon.drop(ec_elim).reset_index()
+                alpha_supp, _ = pycanon.anonymity.alpha_k_anonymity(
+                    anonim_data, quasi_ident, [sens_att]
+                )
+                if alpha_supp <= alpha:
+                    return anonim_data
+
+    return data_kanon
