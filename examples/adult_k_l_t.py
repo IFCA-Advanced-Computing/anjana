@@ -58,15 +58,28 @@ hierarchies = {
 
 start = time.time()
 data_anon = k_anonymity(data, ident, quasi_ident, k, supp_level, hierarchies)
-data_anon = l_diversity(data_anon, ident, quasi_ident, sens_att, k, l_div, supp_level, hierarchies)
-data_anon = t_closeness(data_anon, ident, quasi_ident, sens_att, k, t, supp_level, hierarchies)
+data_anon = l_diversity(
+    data_anon, ident, quasi_ident, sens_att, k, l_div, supp_level, hierarchies
+)
+data_anon = t_closeness(
+    data_anon, ident, quasi_ident, sens_att, k, t, supp_level, hierarchies
+)
 end = time.time()
 print(f"Elapsed time: {end-start}")
-print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
-print(f"Value of l-diversity: {pycanon.anonymity.l_diversity(data_anon, quasi_ident, [sens_att])}")
-print(f"Value of t-closeness: {pycanon.anonymity.t_closeness(data_anon, quasi_ident, [sens_att])}")
+print(
+    f"Value of k calculated: "
+    f"\t{pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}"
+)
+print(
+    f"Value of l-diversity: "
+    f"\t{pycanon.anonymity.l_diversity(data_anon, quasi_ident, [sens_att])}"
+)
+print(
+    f"Value of t-closeness: "
+    f"\t{pycanon.anonymity.t_closeness(data_anon, quasi_ident, [sens_att])}"
+)
 
-# Elapsed time: 3.216697931289673
-# Value of k calculated: 72
-# Value of l-diversity: 2
-# Value of t-closeness: 0.4737011422127644
+# Elapsed time: 3.8451220989227295
+# Value of k calculated: 	72
+# Value of l-diversity: 	2
+# Value of t-closeness: 	0.4737011422127644

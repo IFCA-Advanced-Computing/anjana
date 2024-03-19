@@ -22,7 +22,7 @@ import pandas as pd
 
 
 def suppress_identifiers(
-        data: pd.DataFrame, ident: typing.Union[typing.List, np.ndarray]
+    data: pd.DataFrame, ident: typing.Union[typing.List, np.ndarray]
 ):
     """Remove the identifiers from a dataser.
 
@@ -69,7 +69,7 @@ def apply_hierarchy(data: list, hierarchies: dict, level: int):
 def check_gen_level(
     data: pd.DataFrame,
     quasi_ident: typing.Union[typing.List, np.ndarray],
-    hierarchies: dict
+    hierarchies: dict,
 ) -> dict:
     """Auxiliary function for checking the generalization level
     for each quasi-identifier.
