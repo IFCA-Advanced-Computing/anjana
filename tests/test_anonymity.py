@@ -4,7 +4,7 @@ import pycanon
 
 
 class TestAdult:
-    data = pd.read_csv("../examples/adult.csv")  # 32561 rows
+    data = pd.read_csv("./examples/adult.csv")  # 32561 rows
     data.columns = data.columns.str.strip()
     cols = [
         "workclass",
@@ -33,19 +33,19 @@ class TestAdult:
     supp_level = 50
 
     hierarchies = {
-        "age": dict(pd.read_csv("../examples/hierarchies/age.csv", header=None)),
+        "age": dict(pd.read_csv("./examples/hierarchies/age.csv", header=None)),
         "education": dict(
-            pd.read_csv("../examples/hierarchies/education.csv", header=None)
+            pd.read_csv("./examples/hierarchies/education.csv", header=None)
         ),
         "marital-status": dict(
-            pd.read_csv("../examples/hierarchies/marital.csv", header=None)
+            pd.read_csv("./examples/hierarchies/marital.csv", header=None)
         ),
         "occupation": dict(
-            pd.read_csv("../examples/hierarchies/occupation.csv", header=None)
+            pd.read_csv("./examples/hierarchies/occupation.csv", header=None)
         ),
-        "sex": dict(pd.read_csv("../examples/hierarchies/sex.csv", header=None)),
+        "sex": dict(pd.read_csv("./examples/hierarchies/sex.csv", header=None)),
         "native-country": dict(
-            pd.read_csv("../examples/hierarchies/country.csv", header=None)
+            pd.read_csv("./examples/hierarchies/country.csv", header=None)
         ),
     }
 
