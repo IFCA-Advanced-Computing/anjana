@@ -18,18 +18,18 @@ sys.path.insert(0, os.path.abspath("./"))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'siesta-anonymity'
-copyright = '2024, Spanish National Research Council (CSIC)'
-author = 'Judith Sáinz-Pardo Díaz (CSIC)'
-release = '0.0.1'
+project = "siesta-anonymity"
+copyright = "2024, Spanish National Research Council (CSIC)"
+author = "Judith Sáinz-Pardo Díaz (CSIC)"
+release = "0.0.1"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon"]
 
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+templates_path = ["_templates"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 source_parsers = {
     ".md": "recommonmark.parser.CommonMarkParser",
@@ -41,5 +41,5 @@ source_suffix = [".rst", ".md"]
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'press'
-html_static_path = ['_static']
+html_theme = "press"
+html_static_path = ["_static"]
