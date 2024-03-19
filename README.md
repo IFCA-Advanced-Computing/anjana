@@ -1,6 +1,13 @@
-# siesta-anonymity
+# ANJANA
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/blob/main/LICENSE)
+[![Pipeline Status](https://gitlab.ifca.es/privacy-security/siesta-anonymity/badges/main/pipeline.svg)](https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/pipelines)
 
-Python library for anonymizing sensitive data.
+![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
+
+
+**Anonymity as major assurance of personal data privacy**
+
+ANJANA is a Python library for anonymizing sensitive data.
 
 The following anonymity techniques are implemented, based on the Python library _[pyCANON](https://github.com/IFCA-Advanced-Computing/pycanon)_:
 * _k-anonymity_.
@@ -89,3 +96,26 @@ This project is licensed under the [Apache 2.0 license](https://gitlab.ifca.es/p
 
 ## Project status
 This project is under active development.
+
+## Funding and acknowledgments
+This work is funded by European Union through the SIESTA project (Horizon Europe) under Grant number 101131957.
+<p>
+<img align="center" width="250" src="https://ec.europa.eu/regional_policy/images/information-sources/logo-download-center/eu_funded_en.jpg">
+<img align="center" width="250" src="https://eosc.eu/wp-content/uploads/2024/01/SIESTA-Logo-1.png">
+<p>
+
+
+----
+**_Note: Anjana and the mythology of Cantabria_**
+<p align="center">
+    <i>
+"La Anjana" is a character from the mythology of Cantabria. Known as the good fairy of Cantabria, generous and protective of all people, she helps the poor, the suffering and those who stray in the forest. 
+    </i>
+</p>
+<p align="center">
+    <i>
+- Cotera, Gustavo. Mitología de Cantabria. Ed. Tantin, Santander, 1998.
+    </i>
+    </p>
+</div>
+
