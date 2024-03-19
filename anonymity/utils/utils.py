@@ -71,8 +71,7 @@ def check_gen_level(
     quasi_ident: typing.Union[typing.List, np.ndarray],
     hierarchies: dict,
 ) -> dict:
-    """Auxiliary function for checking the generalization level
-    for each quasi-identifier.
+    """Check the generalization level for each quasi-identifier.
 
     :param data: data under study.
     :type data: pandas dataframe
