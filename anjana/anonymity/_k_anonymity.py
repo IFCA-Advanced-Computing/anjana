@@ -18,7 +18,7 @@ import typing
 import numpy as np
 import pandas as pd
 import pycanon.anonymity
-from anonymity.utils import utils
+from anjana.anonymity.utils import utils
 from copy import copy
 
 

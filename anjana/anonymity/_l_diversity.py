@@ -18,9 +18,9 @@ import typing
 import numpy as np
 import pandas as pd
 import pycanon
-from anonymity.utils import utils
+from anjana.anonymity.utils import utils
 from copy import copy
-from anonymity import k_anonymity_aux
+from anjana.anonymity import k_anonymity_aux
 
 
 def l_diversity(
