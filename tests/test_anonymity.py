@@ -1,5 +1,5 @@
 import pandas as pd
-import anonymity
+from anjana import anonymity
 import pycanon
 
 
