@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import t_closeness
+from anjana.anonymity import t_closeness
 import pycanon
 import time
 

@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import l_diversity, entropy_l_diversity, recursive_c_l_diversity
+from anjana.anonymity import l_diversity, entropy_l_diversity, recursive_c_l_diversity
 import pycanon
 import time
 

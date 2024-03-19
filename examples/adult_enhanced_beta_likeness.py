@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import enhanced_beta_likeness
+from anjana.anonymity import enhanced_beta_likeness
 import pycanon
 import time
 

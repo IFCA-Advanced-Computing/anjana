@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import alpha_k_anonymity
+from anjana.anonymity import alpha_k_anonymity
 import pycanon
 import time
 

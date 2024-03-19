@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import k_anonymity
+from anjana.anonymity import k_anonymity
 
 data = pd.read_csv("hospital_extended.csv")
 

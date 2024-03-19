@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import delta_disclosure
+from anjana.anonymity import delta_disclosure
 import pycanon
 import time
 
