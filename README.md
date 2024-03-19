@@ -1,5 +1,5 @@
 # ANJANA
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE)
 [![Pipeline Status](https://gitlab.ifca.es/privacy-security/anjana/badges/main/pipeline.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/pipelines)
 
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
@@ -31,7 +31,7 @@ For anonymizing your data you need to introduce:
 * Maximum **level of record suppression** allowed (from 0 to 100).
 * Dictionary containing one dictionary for each quasi-identifier with the **hierarchies** and the levels.
 
-### Example: apply _k-anonymity_, _ℓ-diversity_ and _t-closeness_ to the adult dataset with some predefined hierarchies:
+### Example: apply _k-anonymity_, _ℓ-diversity_ and _t-closeness_ to the [adult dataset](https://archive.ics.uci.edu/dataset/2/adult) with some predefined hierarchies:
 ```python
 import pandas as pd
 from anonymity import k_anonymity, l_diversity, t_closeness
