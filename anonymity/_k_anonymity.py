@@ -104,6 +104,7 @@ def k_anonymity_aux(
     :return: level of generalization applied to each QI.
     :rtype: dict
     """
+    data = copy(data)
     data = utils.suppress_identifiers(data, ident)
     n = len(data)
 
