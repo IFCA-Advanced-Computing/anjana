@@ -15,7 +15,7 @@
 # under the License.
 
 import pandas as pd
-from anonymity import l_diversity
+from anonymity import l_diversity, entropy_l_diversity, recursive_c_l_diversity
 import pycanon
 import time
 
@@ -70,3 +70,37 @@ print(
 # Elapsed time: 1.8302159309387207
 # Value of k calculated: 72
 # Value of l calculated: 2
+
+start = time.time()
+data_anon = entropy_l_diversity(
+    data, ident, quasi_ident, sens_att, k, l_div, supp_level, hierarchies
+)
+end = time.time()
+print(f"Elapsed time: {end - start}")
+print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+print(
+    f"Value of l calculated: "
+    f"{pycanon.anonymity.entropy_l_diversity(data_anon, quasi_ident, [sens_att])}"
+)
+
+# Entropy l-diversity cannot be achieved for l=2
+# Elapsed time: 5.607378244400024
+# Value of k calculated: 18327
+# Value of l calculated: 1
+c = 2
+start = time.time()
+data_anon = recursive_c_l_diversity(
+    data, ident, quasi_ident, sens_att, k, c, l_div, supp_level, hierarchies
+)
+end = time.time()
+print(f"Elapsed time: {end - start}")
+print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+print(
+    f"Values of c and l calculated: "
+    f"{pycanon.anonymity.recursive_c_l_diversity(data_anon, quasi_ident, [sens_att])}"
+)
+
+# Recursive (c,l)-diversity cannot be achieved for l=2 and c=2
+# Elapsed time: 4.803572177886963
+# Value of k calculated: 18327
+# Values of c and l calculated: (1, 2)
