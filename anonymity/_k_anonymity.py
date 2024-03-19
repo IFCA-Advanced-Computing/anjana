@@ -108,9 +108,7 @@ def k_anonymity_aux(
     data = utils.suppress_identifiers(data, ident)
     n = len(data)
 
-    gen_level = {}
-    for qi in quasi_ident:
-        gen_level[qi] = 0
+    gen_level = utils.check_gen_level(data, quasi_ident, hierarchies)
 
     k_real = pycanon.anonymity.k_anonymity(data, quasi_ident)
     quasi_ident_gen = copy(quasi_ident)
