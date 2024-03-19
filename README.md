@@ -24,11 +24,12 @@ The following anonymity techniques are implemented, based on the Python library 
 
 For anonymizing your data you need to introduce:
 * The **pandas dataframe** with the data to be anonymized. Each column can contain: indentifiers, quasi-indentifiers or sensitive attributes.
+* The **list with the names of the identifiers** in the dataframe, in order to suppress them.
 * The **list with the names of the quasi-identifiers** in the dataframe.
 * The **sentive attribute** (only one) in case of applying other techniques than _k-anonymity_.
 * The **level of anonymity to be applied**, e.g. _k_ (for _k-anonymity_), _ℓ_ (for _ℓ-diversity_), _t_ (for _t-closeness_), _β_ (for _basic or enhanced β-likeness_), etc.
 * Maximum **level of record suppression** allowed (from 0 to 100).
-* Dictionary containing one dictionary for each QI with the **hierarchies** and the levels.
+* Dictionary containing one dictionary for each quasi-identifier with the **hierarchies** and the levels.
 
 ### Example: apply _k-anonymity_, _ℓ-diversity_ and _t-closeness_ to the adult dataset with some predefined hierarchies:
 ```python
@@ -114,7 +115,7 @@ This work is funded by European Union through the SIESTA project (Horizon Europe
 </p>
 <p align="center">
     <i>
-- Cotera, Gustavo. Mitología de Cantabria. Ed. Tantin, Santander, 1998.
+- Partially extracted from: Cotera, Gustavo. Mitología de Cantabria. Ed. Tantin, Santander, 1998.
     </i>
     </p>
 </div>
