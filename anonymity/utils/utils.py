@@ -24,7 +24,7 @@ import pandas as pd
 def suppress_identifiers(
     data: pd.DataFrame, ident: typing.Union[typing.List, np.ndarray]
 ):
-    """Remove the identifiers from a dataser.
+    """Remove the identifiers from a dataset.
 
     :param data: data under study.
     :type data: pandas dataframe
