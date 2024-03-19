@@ -6,6 +6,8 @@ The following anonymity techniques are implemented, based on the Python library 
 * _k-anonymity_.
 * _(α,k)-anonymity_.
 * _ℓ-diversity_.
+* _Entropy ℓ-diversity_.
+* _Recursive (c,ℓ)-diversity_.
 * _t-closeness_.
 * _Basic β-likeness_.
 * _Enhanced β-likeness_.
