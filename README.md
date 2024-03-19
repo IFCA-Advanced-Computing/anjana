@@ -1,6 +1,6 @@
 # ANJANA
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/blob/main/LICENSE)
-[![Pipeline Status](https://gitlab.ifca.es/privacy-security/siesta-anonymity/badges/main/pipeline.svg)](https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/pipelines)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE)
+[![Pipeline Status](https://gitlab.ifca.es/privacy-security/anjana/badges/main/pipeline.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/pipelines)
 
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
 
@@ -93,7 +93,7 @@ data_anon = t_closeness(
 The previous code can be executed in less than 4 seconds for the more than 30,000 records of the original dataset.
 
 ## License
-This project is licensed under the [Apache 2.0 license](https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/blob/main/LICENSE?ref_type=heads).
+This project is licensed under the [Apache 2.0 license](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE?ref_type=heads).
 
 ## Project status
 This project is under active development.
