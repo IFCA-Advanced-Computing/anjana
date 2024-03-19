@@ -67,7 +67,7 @@ print(
     f"{pycanon.anonymity.l_diversity(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 1.8302159309387207
+# Elapsed time: 1.1014823913574219
 # Value of k calculated: 72
 # Value of l calculated: 2
 
@@ -84,7 +84,7 @@ print(
 )
 
 # Entropy l-diversity cannot be achieved for l=2
-# Elapsed time: 5.607378244400024
+# Elapsed time: 6.262372255325317
 # Value of k calculated: 18327
 # Value of l calculated: 1
 c = 2
@@ -101,6 +101,6 @@ print(
 )
 
 # Recursive (c,l)-diversity cannot be achieved for l=2 and c=2
-# Elapsed time: 4.803572177886963
+# Elapsed time: 5.675975561141968
 # Value of k calculated: 18327
 # Values of c and l calculated: (1, 2)

@@ -67,6 +67,6 @@ print(
     f"{pycanon.anonymity.enhanced_beta_likeness(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 4.190052509307861
+# Elapsed time: 1.1014823913574219
 # Value of k calculated: 4950
 # Value of beta (enhanced) calculated: 0.28299597682058103

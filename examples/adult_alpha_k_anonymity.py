@@ -65,6 +65,6 @@ print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_i
 alpha_cal, _ = pycanon.anonymity.alpha_k_anonymity(data_anon, quasi_ident, [sens_att])
 print(f"Value of alpha calculated: {alpha_cal}")
 
-# Elapsed time: 0.7319686412811279
+# Elapsed time: 1.1014823913574219
 # Value of k calculated: 10
 # Value of alpha calculated: 0.8

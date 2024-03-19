@@ -67,6 +67,6 @@ print(
     f"{pycanon.anonymity.t_closeness(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 3.7404873371124268
+# Elapsed time: 3.8912816047668457
 # Value of k calculated: 72
 # Value of t calculated: 0.4737011422127644

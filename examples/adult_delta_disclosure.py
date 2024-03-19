@@ -67,6 +67,6 @@ print(
     f"{pycanon.anonymity.delta_disclosure(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 3.9552361965179443
+# Elapsed time: 1.1014823913574219
 # Value of k calculated: 392
 # Value of delta calculated: 2.159243878369523
