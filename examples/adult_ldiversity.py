@@ -78,7 +78,10 @@ data_anon = entropy_l_diversity(
 end = time.time()
 print(f"Elapsed time: {end - start}")
 if len(data_anon) > 1:
-    print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+    print(
+        f"Value of k calculated: "
+        f"{pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}"
+    )
     print(
         f"Value of l calculated: "
         f"{pycanon.anonymity.entropy_l_diversity(data_anon, quasi_ident, [sens_att])}"
@@ -96,11 +99,14 @@ data_anon = recursive_c_l_diversity(
 end = time.time()
 print(f"Elapsed time: {end - start}")
 if len(data_anon) > 1:
-    print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
     print(
-        f"Values of c and l calculated: "
-        f"{pycanon.anonymity.recursive_c_l_diversity(data_anon, quasi_ident, [sens_att])}"
+        f"Value of k calculated: "
+        f"{pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}"
     )
+    c_cal, l_cal = pycanon.anonymity.recursive_c_l_diversity(
+        data_anon, quasi_ident, [sens_att]
+    )
+    print(f"Values of c and l calculated: " f"c={c_cal}, l={l_cal}")
 
 # Recursive (c,l)-diversity cannot be achieved for l=2 and c=2
 # Elapsed time: 5.675975561141968
