@@ -77,11 +77,12 @@ data_anon = entropy_l_diversity(
 )
 end = time.time()
 print(f"Elapsed time: {end - start}")
-print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
-print(
-    f"Value of l calculated: "
-    f"{pycanon.anonymity.entropy_l_diversity(data_anon, quasi_ident, [sens_att])}"
-)
+if len(data_anon) > 1:
+    print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+    print(
+        f"Value of l calculated: "
+        f"{pycanon.anonymity.entropy_l_diversity(data_anon, quasi_ident, [sens_att])}"
+    )
 
 # Entropy l-diversity cannot be achieved for l=2
 # Elapsed time: 6.262372255325317
@@ -94,11 +95,12 @@ data_anon = recursive_c_l_diversity(
 )
 end = time.time()
 print(f"Elapsed time: {end - start}")
-print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
-print(
-    f"Values of c and l calculated: "
-    f"{pycanon.anonymity.recursive_c_l_diversity(data_anon, quasi_ident, [sens_att])}"
-)
+if len(data_anon) > 1:
+    print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
+    print(
+        f"Values of c and l calculated: "
+        f"{pycanon.anonymity.recursive_c_l_diversity(data_anon, quasi_ident, [sens_att])}"
+    )
 
 # Recursive (c,l)-diversity cannot be achieved for l=2 and c=2
 # Elapsed time: 5.675975561141968
