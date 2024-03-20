@@ -254,7 +254,7 @@ def recursive_c_l_diversity(
             ]
             values = np.unique(data_temp[sens_att].values)
             r_ec = np.sort([len(data_temp[data_temp[sens_att] == s]) for s in values])
-            c_ec.append(np.floor(r_ec[0] / sum(r_ec[l_div - 1 :]) + 1))
+            c_ec.append(np.floor(r_ec[0] / sum(r_ec[(l_div - 1) :]) + 1))
             if max(c_ec) < c:
                 f"Recursive (c,l)-diversity cannot be achieved for l={l_div} and c={c}"
             else:

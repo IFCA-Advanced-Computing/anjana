@@ -14,10 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""
-Module with utils: suppress identifiers, apply hierarchies and check
-the generalization level.
-"""
+"""Module with utils for the anonymization tools."""
 
 import typing
 import numpy as np
