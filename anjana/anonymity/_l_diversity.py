@@ -24,14 +24,14 @@ from anjana.anonymity import k_anonymity_aux
 
 
 def l_diversity(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: str,
-        k: int,
-        l_div: int,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
+    k: int,
+    l_div: int,
+    supp_level: float,
+    hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using l-diversity.
 
@@ -73,14 +73,14 @@ def l_diversity(
 
 
 def entropy_l_diversity(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: str,
-        k: int,
-        l_div: int,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
+    k: int,
+    l_div: int,
+    supp_level: float,
+    hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using entropy l-diversity.
 
@@ -156,15 +156,15 @@ def entropy_l_diversity(
 
 
 def recursive_c_l_diversity(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: str,
-        k: int,
-        c: int,
-        l_div: int,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
+    k: int,
+    c: int,
+    l_div: int,
+    supp_level: float,
+    hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using recursive (c,l)-diversity.
 
@@ -249,12 +249,12 @@ def recursive_c_l_diversity(
         )
         c_ec = []
         for ec in equiv_class:
-            data_temp = data_kanon.iloc[pycanon.anonymity.utils.aux_functions.convert(ec)]
+            data_temp = data_kanon.iloc[
+                pycanon.anonymity.utils.aux_functions.convert(ec)
+            ]
             values = np.unique(data_temp[sens_att].values)
             r_ec = np.sort([len(data_temp[data_temp[sens_att] == s]) for s in values])
-            c_ec.append(
-                np.floor(r_ec[0] / sum(r_ec[l_div - 1:]) + 1)
-            )
+            c_ec.append(np.floor(r_ec[0] / sum(r_ec[l_div - 1 :]) + 1))
             if max(c_ec) < c:
                 f"Recursive (c,l)-diversity cannot be achieved for l={l_div} and c={c}"
             else:
@@ -282,14 +282,14 @@ def recursive_c_l_diversity(
 
 
 def _l_diversity_aux(
-        data: pd.DataFrame,
-        ident: typing.Union[typing.List, np.ndarray],
-        quasi_ident: typing.Union[typing.List, np.ndarray],
-        sens_att: str,
-        k: int,
-        l_div: int,
-        supp_level: float,
-        hierarchies: dict,
+    data: pd.DataFrame,
+    ident: typing.Union[typing.List, np.ndarray],
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    sens_att: str,
+    k: int,
+    l_div: int,
+    supp_level: float,
+    hierarchies: dict,
 ) -> (pd.DataFrame, int):
     """Anonymize a dataset using l-diversity.
 
@@ -333,7 +333,6 @@ def _l_diversity_aux(
 
     data = copy(data)
     data = utils.suppress_identifiers(data, ident)
-    n = len(data_kanon)
 
     l_real = pycanon.anonymity.l_diversity(data_kanon, quasi_ident, [sens_att])
     quasi_ident_gen = copy(quasi_ident)
