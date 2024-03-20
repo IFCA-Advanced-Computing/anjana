@@ -80,7 +80,7 @@ def delta_disclosure(
     while delta_real > delta:
         if len(quasi_ident_gen) == 0:
             print(f"Delta-disclosure privacy cannot be achieved for delta={delta}")
-            return data_kanon
+            return pd.DataFrame()
 
         qi_gen = quasi_ident_gen[
             np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])

@@ -82,7 +82,7 @@ def basic_beta_likeness(
     while beta_real > beta:
         if len(quasi_ident_gen) == 0:
             print(f"Basic beta likeness cannot be achieved for beta={beta}")
-            return data_kanon
+            return pd.DataFrame()
 
         qi_gen = quasi_ident_gen[
             np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])
@@ -166,7 +166,7 @@ def enhanced_beta_likeness(
     while beta_real > beta:
         if len(quasi_ident_gen) == 0:
             print(f"Enhanced beta likeness cannot be achieved for beta={beta}")
-            return data_kanon
+            return pd.DataFrame()
 
         qi_gen = quasi_ident_gen[
             np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])

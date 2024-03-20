@@ -149,7 +149,7 @@ def k_anonymity_aux(
         if len(quasi_ident_gen) == 0:
             print(f"The anonymization cannot be carried out for the given value k={k}")
             supp_records = n - len(data)
-            return data, supp_records, gen_level
+            return pd.DataFrame(), supp_records, gen_level
 
         qi_gen = quasi_ident_gen[
             np.argmax([len(np.unique(data[qi])) for qi in quasi_ident_gen])
@@ -225,7 +225,7 @@ def alpha_k_anonymity(
     while alpha_real > alpha:
         if len(quasi_ident_gen) == 0:
             print(f"(alpha,k)-anonymity cannot be achieved for alpha={alpha}")
-            return data_kanon
+            return pd.DataFrame()
 
         qi_gen = quasi_ident_gen[
             np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])

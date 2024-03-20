@@ -80,7 +80,7 @@ def t_closeness(
     while t_real > t:
         if len(quasi_ident_gen) == 0:
             print(f"The anonymization cannot be carried out for the given value t={t}")
-            return data_kanon
+            return pd.DataFrame()
 
         qi_gen = quasi_ident_gen[
             np.argmax([len(np.unique(data_kanon[qi])) for qi in quasi_ident_gen])
