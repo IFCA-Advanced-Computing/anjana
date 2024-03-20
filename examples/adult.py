@@ -19,7 +19,7 @@ from anjana.anonymity import k_anonymity
 import pycanon
 import time
 
-data = pd.read_csv("adult.csv")  # 32561 rows
+data = pd.read_csv("data/adult.csv")  # 32561 rows
 data.columns = data.columns.str.strip()
 cols = [
     "workclass",

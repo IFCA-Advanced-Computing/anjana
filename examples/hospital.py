@@ -17,7 +17,7 @@
 import pandas as pd
 from anjana.anonymity import k_anonymity
 
-data = pd.read_csv("hospital_extended.csv")
+data = pd.read_csv("data/hospital_extended.csv")
 
 ident = ["name"]
 quasi_ident = ["age", "gender", "city"]
