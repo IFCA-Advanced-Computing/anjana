@@ -12,7 +12,7 @@ Install the repository in a ``virtualenv`` using ``pip``:
 
     virtualenv .venv
     source .venv/bin/activate
-    pip install git+https://gitlab.ifca.es/privacy-security/siesta-anonymity.git
+    pip install git+https://gitlab.ifca.es/privacy-security/anjana.git
 
 
 Example usage

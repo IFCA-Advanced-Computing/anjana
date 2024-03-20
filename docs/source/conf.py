@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath("./"))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "anjana"
+project = "ANJANA"
 copyright = "2024, Spanish National Research Council (CSIC)"
 author = "Judith Sáinz-Pardo Díaz (CSIC)"
 release = "0.0.1"
@@ -41,5 +41,4 @@ source_suffix = [".rst", ".md"]
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "press"
-html_static_path = ["_static"]
+html_theme = "pydata_sphinx_theme"
