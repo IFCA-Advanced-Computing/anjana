@@ -4,7 +4,7 @@ import pandas as pd
 
 
 class TestInvalidValues(unittest.TestCase):
-    data = pd.read_csv("./examples/data/adult.csv")  # 32561 rows
+    data = pd.read_csv("../examples/data/adult.csv")  # 32561 rows
     data.columns = data.columns.str.strip()
     cols = [
         "workclass",
@@ -29,19 +29,19 @@ class TestInvalidValues(unittest.TestCase):
     sens_att = "salary-class"
 
     hierarchies = {
-        "age": dict(pd.read_csv("./examples/hierarchies/age.csv", header=None)),
+        "age": dict(pd.read_csv("../examples/hierarchies/age.csv", header=None)),
         "education": dict(
-            pd.read_csv("./examples/hierarchies/education.csv", header=None)
+            pd.read_csv("../examples/hierarchies/education.csv", header=None)
         ),
         "marital-status": dict(
-            pd.read_csv("./examples/hierarchies/marital.csv", header=None)
+            pd.read_csv("../examples/hierarchies/marital.csv", header=None)
         ),
         "occupation": dict(
-            pd.read_csv("./examples/hierarchies/occupation.csv", header=None)
+            pd.read_csv("../examples/hierarchies/occupation.csv", header=None)
         ),
-        "sex": dict(pd.read_csv("./examples/hierarchies/sex.csv", header=None)),
+        "sex": dict(pd.read_csv("../examples/hierarchies/sex.csv", header=None)),
         "native-country": dict(
-            pd.read_csv("./examples/hierarchies/country.csv", header=None)
+            pd.read_csv("../examples/hierarchies/country.csv", header=None)
         ),
     }
 
@@ -67,6 +67,38 @@ class TestInvalidValues(unittest.TestCase):
                 self.ident,
                 self.quasi_ident,
                 k,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_alpha_neg(self):
+        k = -1
+        alpha = -1
+        supp_level = 50
+        with self.assertRaises(ValueError):
+            anonymity.alpha_k_anonymity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                alpha,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_alpha_high(self):
+        k = 0
+        alpha = 1.5
+        supp_level = 50
+        with self.assertRaises(ValueError):
+            anonymity.alpha_k_anonymity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                alpha,
                 supp_level,
                 self.hierarchies,
             )
