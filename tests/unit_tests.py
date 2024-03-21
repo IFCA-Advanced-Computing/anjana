@@ -264,3 +264,51 @@ class TestInvalidValues(unittest.TestCase):
                 supp_level,
                 self.hierarchies,
             )
+
+    def test_basic_beta_neg(self):
+        k = 1
+        beta = -1
+        supp_level = 50
+        with self.assertRaises(ValueError):
+            anonymity.basic_beta_likeness(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                beta,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_enhanced_beta_neg(self):
+        k = 1
+        beta = -1
+        supp_level = 50
+        with self.assertRaises(ValueError):
+            anonymity.enhanced_beta_likeness(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                beta,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_delta_neg(self):
+        k = 1
+        delta = -1
+        supp_level = 50
+        with self.assertRaises(ValueError):
+            anonymity.delta_disclosure(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                delta,
+                supp_level,
+                self.hierarchies,
+            )
