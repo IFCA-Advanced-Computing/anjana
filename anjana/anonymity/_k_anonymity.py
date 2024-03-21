@@ -104,6 +104,12 @@ def k_anonymity_aux(
     :return: level of generalization applied to each QI.
     :rtype: dict
     """
+    if k < 1:
+        raise ValueError(f"Invalid value of k for k-anonymity k={k}")
+
+    if supp_level > 100 or supp_level < 0:
+        raise ValueError(f"Invalid value of for the suppression level {supp_level}")
+
     data = copy(data)
     data = utils.suppress_identifiers(data, ident)
     n = len(data)
@@ -216,6 +222,11 @@ def alpha_k_anonymity(
     data_kanon, supp_records, gen_level = k_anonymity_aux(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
+
+    if alpha > 1 or alpha < 0:
+        raise ValueError(
+            f"Invalid value of alpha for (alpha,k)-anonymity " f"alpha={alpha}"
+        )
 
     alpha_real, _ = pycanon.anonymity.alpha_k_anonymity(
         data_kanon, quasi_ident, [sens_att]

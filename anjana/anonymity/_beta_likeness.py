@@ -66,6 +66,9 @@ def basic_beta_likeness(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
+    if beta < 0:
+        raise ValueError(f"Invalid value of beta for beta-likeness, beta={beta}")
+
     data_kanon, supp_records, gen_level = k_anonymity_aux(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
@@ -150,6 +153,9 @@ def enhanced_beta_likeness(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
+    if beta < 0:
+        raise ValueError(f"Invalid value of beta for beta-likeness, beta={beta}")
+
     data_kanon, supp_records, gen_level = k_anonymity_aux(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )

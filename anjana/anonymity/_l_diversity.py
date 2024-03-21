@@ -202,6 +202,9 @@ def recursive_c_l_diversity(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
+    if c < 1:
+        raise ValueError(f"Invalid value of c for recursive (c,l)-diversity, c={c}")
+
     data = copy(data)
     data_kanon, supp_records = _l_diversity_aux(
         data, ident, quasi_ident, sens_att, k, l_div, supp_level, hierarchies
@@ -327,6 +330,9 @@ def _l_diversity_aux(
     :return: number of records suppressed.
     :rtype: int
     """
+    if l_div < 1:
+        raise ValueError(f"Invalid value of l for l-diversity l={l_div}")
+
     data_kanon, supp_records_k, gen_level = k_anonymity_aux(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )

@@ -66,6 +66,9 @@ def delta_disclosure(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
+    if delta < 0:
+        raise ValueError(f"Invalid value of delta for delta-disclosure, delta={delta}")
+
     data_kanon, supp_records, gen_level = k_anonymity_aux(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
