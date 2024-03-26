@@ -16,11 +16,13 @@
 
 """Module with utils for the anonymization tools."""
 
-import typing
 import numpy as np
 import pandas as pd
+from beartype import beartype
+from beartype import typing
 
 
+@beartype()
 def suppress_identifiers(
     data: pd.DataFrame, ident: typing.Union[typing.List, np.ndarray]
 ):
@@ -41,11 +43,14 @@ def suppress_identifiers(
     return data
 
 
-def apply_hierarchy(data: list, hierarchies: dict, level: int):
+@beartype()
+def apply_hierarchy(
+    data: typing.Union[typing.List, np.ndarray], hierarchies: dict, level: int
+):
     """Remove the identifiers from a dataset.
 
     :param data: data under study.
-    :type data: pandas dataframe
+    :type data: list, numpy array
 
     :param hierarchies: hierarchies for generalizing a given QI.
     :type hierarchies: dictionary with the hierarchies and the levels
@@ -66,6 +71,7 @@ def apply_hierarchy(data: list, hierarchies: dict, level: int):
     return data_anon
 
 
+@beartype()
 def check_gen_level(
     data: pd.DataFrame,
     quasi_ident: typing.Union[typing.List, np.ndarray],

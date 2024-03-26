@@ -14,15 +14,17 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import typing
 import numpy as np
 import pandas as pd
 import pycanon
 from anjana.anonymity.utils import utils
 from copy import copy
-from anjana.anonymity import k_anonymity_aux
+from anjana.anonymity import k_anonymity_inner
+from beartype import beartype
+from beartype import typing
 
 
+@beartype()
 def l_diversity(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
@@ -30,7 +32,7 @@ def l_diversity(
     sens_att: str,
     k: int,
     l_div: int,
-    supp_level: float,
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using l-diversity.
@@ -66,12 +68,13 @@ def l_diversity(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
-    data_anon, _ = _l_diversity_aux(
+    data_anon, _ = _l_diversity_inner(
         data, ident, quasi_ident, sens_att, k, l_div, supp_level, hierarchies
     )
     return data_anon
 
 
+@beartype()
 def entropy_l_diversity(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
@@ -79,7 +82,7 @@ def entropy_l_diversity(
     sens_att: str,
     k: int,
     l_div: int,
-    supp_level: float,
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using entropy l-diversity.
@@ -155,6 +158,7 @@ def entropy_l_diversity(
     return data_kanon
 
 
+@beartype()
 def recursive_c_l_diversity(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
@@ -163,7 +167,7 @@ def recursive_c_l_diversity(
     k: int,
     c: int,
     l_div: int,
-    supp_level: float,
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using recursive (c,l)-diversity.
@@ -206,7 +210,7 @@ def recursive_c_l_diversity(
         raise ValueError(f"Invalid value of c for recursive (c,l)-diversity, c={c}")
 
     data = copy(data)
-    data_kanon, supp_records = _l_diversity_aux(
+    data_kanon, supp_records = _l_diversity_inner(
         data, ident, quasi_ident, sens_att, k, l_div, supp_level, hierarchies
     )
 
@@ -284,14 +288,14 @@ def recursive_c_l_diversity(
     return data_kanon
 
 
-def _l_diversity_aux(
+def _l_diversity_inner(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: str,
     k: int,
     l_div: int,
-    supp_level: float,
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> (pd.DataFrame, int):
     """Anonymize a dataset using l-diversity.
@@ -333,7 +337,7 @@ def _l_diversity_aux(
     if l_div < 1:
         raise ValueError(f"Invalid value of l for l-diversity l={l_div}")
 
-    data_kanon, supp_records_k, gen_level = k_anonymity_aux(
+    data_kanon, supp_records_k, gen_level = k_anonymity_inner(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 

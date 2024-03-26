@@ -14,23 +14,25 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import typing
 import numpy as np
 import pandas as pd
 import pycanon
 from anjana.anonymity.utils import utils
 from copy import copy
-from anjana.anonymity import k_anonymity_aux
+from anjana.anonymity import k_anonymity_inner
+from beartype import beartype
+from beartype import typing
 
 
+@beartype()
 def basic_beta_likeness(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: str,
     k: int,
-    beta: float,
-    supp_level: float,
+    beta: typing.Union[float, int],
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using basic beta-likeness and k-anonymity.
@@ -69,7 +71,7 @@ def basic_beta_likeness(
     if beta < 0:
         raise ValueError(f"Invalid value of beta for beta-likeness, beta={beta}")
 
-    data_kanon, supp_records, gen_level = k_anonymity_aux(
+    data_kanon, supp_records, gen_level = k_anonymity_inner(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 
@@ -110,14 +112,15 @@ def basic_beta_likeness(
     return data_kanon
 
 
+@beartype()
 def enhanced_beta_likeness(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: str,
     k: int,
-    beta: float,
-    supp_level: float,
+    beta: typing.Union[float, int],
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using enhanced beta-likeness and k-anonymity.
@@ -156,7 +159,7 @@ def enhanced_beta_likeness(
     if beta < 0:
         raise ValueError(f"Invalid value of beta for beta-likeness, beta={beta}")
 
-    data_kanon, supp_records, gen_level = k_anonymity_aux(
+    data_kanon, supp_records, gen_level = k_anonymity_inner(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 
