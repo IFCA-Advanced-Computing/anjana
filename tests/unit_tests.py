@@ -349,10 +349,9 @@ class TestInvalidValues(unittest.TestCase):
     def test_kanon_data(self):
         k = 1
         supp_level = 50
-        with self.assertRaises(
-                beartype.roar.BeartypeCallHintParamViolation):
+        with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
             anonymity.k_anonymity(
-                'data.csv',
+                "data.csv",
                 self.ident,
                 self.quasi_ident,
                 self.sens_att,
@@ -364,8 +363,7 @@ class TestInvalidValues(unittest.TestCase):
     def test_kanon_float(self):
         k = 1.5
         supp_level = 50
-        with self.assertRaises(
-                beartype.roar.BeartypeCallHintParamViolation):
+        with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
             anonymity.k_anonymity(
                 self.data,
                 self.ident,
@@ -380,8 +378,7 @@ class TestInvalidValues(unittest.TestCase):
         k = 1.5
         l_div = 1.5
         supp_level = 50
-        with self.assertRaises(
-                beartype.roar.BeartypeCallHintParamViolation):
+        with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
             anonymity.l_diversity(
                 self.data,
                 self.ident,
@@ -397,8 +394,7 @@ class TestInvalidValues(unittest.TestCase):
         k = 1.5
         l_div = 1.5
         supp_level = 50
-        with self.assertRaises(
-                beartype.roar.BeartypeCallHintParamViolation):
+        with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
             anonymity.entropy_l_diversity(
                 self.data,
                 self.ident,
@@ -415,8 +411,7 @@ class TestInvalidValues(unittest.TestCase):
         c = 1
         l_div = 1.5
         supp_level = 50
-        with self.assertRaises(
-                beartype.roar.BeartypeCallHintParamViolation):
+        with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
             anonymity.recursive_c_l_diversity(
                 self.data,
                 self.ident,
@@ -434,8 +429,7 @@ class TestInvalidValues(unittest.TestCase):
         c = 1.5
         l_div = 1
         supp_level = 50
-        with self.assertRaises(
-                beartype.roar.BeartypeCallHintParamViolation):
+        with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
             anonymity.recursive_c_l_diversity(
                 self.data,
                 self.ident,
