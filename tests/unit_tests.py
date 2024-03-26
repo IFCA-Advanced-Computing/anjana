@@ -1,6 +1,7 @@
 import unittest
 from anjana import anonymity
 import pandas as pd
+import beartype
 
 
 class TestInvalidValues(unittest.TestCase):
@@ -341,6 +342,108 @@ class TestInvalidValues(unittest.TestCase):
                 self.sens_att,
                 k,
                 delta,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_kanon_data(self):
+        k = 1
+        supp_level = 50
+        with self.assertRaises(
+                beartype.roar.BeartypeCallHintParamViolation):
+            anonymity.k_anonymity(
+                'data.csv',
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_kanon_float(self):
+        k = 1.5
+        supp_level = 50
+        with self.assertRaises(
+                beartype.roar.BeartypeCallHintParamViolation):
+            anonymity.k_anonymity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_ldiv_float(self):
+        k = 1.5
+        l_div = 1.5
+        supp_level = 50
+        with self.assertRaises(
+                beartype.roar.BeartypeCallHintParamViolation):
+            anonymity.l_diversity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                l_div,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_entropy_ldiv_float(self):
+        k = 1.5
+        l_div = 1.5
+        supp_level = 50
+        with self.assertRaises(
+                beartype.roar.BeartypeCallHintParamViolation):
+            anonymity.entropy_l_diversity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                l_div,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_rec_ldiv_float(self):
+        k = 1.5
+        c = 1
+        l_div = 1.5
+        supp_level = 50
+        with self.assertRaises(
+                beartype.roar.BeartypeCallHintParamViolation):
+            anonymity.recursive_c_l_diversity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                c,
+                l_div,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_rec_c_ldiv_float(self):
+        k = 1.5
+        c = 1.5
+        l_div = 1
+        supp_level = 50
+        with self.assertRaises(
+                beartype.roar.BeartypeCallHintParamViolation):
+            anonymity.recursive_c_l_diversity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                c,
+                l_div,
                 supp_level,
                 self.hierarchies,
             )
