@@ -39,7 +39,10 @@ def suppress_identifiers(
     :rtype: pandas dataframe
     """
     for i in ident:
+        if i not in data.columns:
+            raise ValueError(f'Identifier {i} is not a column in the given dataset')
         data[i] = ["*"] * len(data)
+
     return data
 
 
