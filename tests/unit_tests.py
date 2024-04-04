@@ -374,8 +374,24 @@ class TestInvalidValues(unittest.TestCase):
                 self.hierarchies,
             )
 
-    def test_ldiv_float(self):
+    def test_alpha_kanon_float(self):
         k = 1.5
+        alpha = 0.5
+        supp_level = 50
+        with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
+            anonymity.k_anonymity(
+                self.data,
+                self.ident,
+                self.quasi_ident,
+                self.sens_att,
+                k,
+                alpha,
+                supp_level,
+                self.hierarchies,
+            )
+
+    def test_ldiv_float(self):
+        k = 2
         l_div = 1.5
         supp_level = 50
         with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
@@ -391,7 +407,7 @@ class TestInvalidValues(unittest.TestCase):
             )
 
     def test_entropy_ldiv_float(self):
-        k = 1.5
+        k = 2
         l_div = 1.5
         supp_level = 50
         with self.assertRaises(beartype.roar.BeartypeCallHintParamViolation):
@@ -407,7 +423,7 @@ class TestInvalidValues(unittest.TestCase):
             )
 
     def test_rec_ldiv_float(self):
-        k = 1.5
+        k = 2
         c = 1
         l_div = 1.5
         supp_level = 50
@@ -425,7 +441,7 @@ class TestInvalidValues(unittest.TestCase):
             )
 
     def test_rec_c_ldiv_float(self):
-        k = 1.5
+        k = 2
         c = 1.5
         l_div = 1
         supp_level = 50
