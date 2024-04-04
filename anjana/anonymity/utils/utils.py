@@ -47,7 +47,7 @@ def suppress_identifiers(
 def apply_hierarchy(
     data: typing.Union[typing.List, np.ndarray], hierarchies: dict, level: int
 ):
-    """Remove the identifiers from a dataset.
+    """Apply the given level of a hierarchy for a quasi-identifier.
 
     :param data: data under study.
     :type data: list, numpy array
@@ -64,6 +64,11 @@ def apply_hierarchy(
     num_level = len(hierarchies.keys()) - 1
     if level > num_level:
         raise ValueError("Error, invalid hierarchy level")
+    if not isinstance(hierarchies[level], pd.Series):
+        hierarchies[level] = pd.Series(hierarchies[level])
+    if not isinstance(hierarchies[level - 1], pd.Series):
+        hierarchies[level - 1] = pd.Series(hierarchies[level - 1])
+
     pos = []
     for elem in data:
         pos.append(np.where(hierarchies[level - 1].values == elem)[0][0])
