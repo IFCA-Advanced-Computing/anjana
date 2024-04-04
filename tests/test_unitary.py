@@ -40,7 +40,7 @@ class TestInvalidValues(unittest.TestCase):
         "occupation": dict(
             pd.read_csv("./examples/hierarchies/occupation.csv", header=None)
         ),
-        "sex": dict(pd.read_csv("../examples/hierarchies/sex.csv", header=None)),
+        "sex": dict(pd.read_csv("./examples/hierarchies/sex.csv", header=None)),
         "native-country": dict(
             pd.read_csv("./examples/hierarchies/country.csv", header=None)
         ),
