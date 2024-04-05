@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "anjana"
+version = "0.0.1"
+description = "ANJANA is an open source framework for applying different anonymity techniques."
+authors = ["Judith Sáinz-Pardo Díaz <sainzpardo@ifca.unican.es>"]
+license = "Apache License 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+black = "24.2.0"
+pandas = "2.1.4"
+pycanon = "1.0.1.post2"
+tabulate = "0.9.0"
+typing_extensions = "4.9.0"
+beartype = "0.17.2"
+
+[tool.poetry.group.dev.dependencies]
+tox = "^4.11.4"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "8.1.1"
+pytest-cov = "^4.1.0"
+
+
+[tool.poetry.group.test-flake8.dependencies]
+flake8 = "7.0.0"
+flake8-bugbear = "^23.12.2"
+flake8-docstrings = "^1.7.0"
+flake8-typing-imports = "^1.15.0"
+flake8-colors = "^0.1.9"
+pep8-naming = "^0.13.3"
+pydocstyle = "^6.3.0"
+
+
+[tool.poetry.group.test-black.dependencies]
+black = "24.2.0"
+
+
+[tool.poetry.group.test-bandit.dependencies]
+bandit = "^1.7.6"
+
+
+[tool.poetry.group.test-pip-missing-reqs.dependencies]
+pip-check-reqs = "^2.5.3"
+
+
+[tool.poetry.group.test-mypy.dependencies]
+mypy = "^1.8.0"
+
+
+[tool.poetry.group.test-pypi.dependencies]
+twine = "^4.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
