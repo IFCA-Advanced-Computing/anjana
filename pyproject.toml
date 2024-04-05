@@ -27,7 +27,6 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-black = "24.2.0"
 pandas = "2.1.4"
 pycanon = "1.0.1.post2"
 tabulate = "0.9.0"
