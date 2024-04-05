@@ -59,10 +59,8 @@ build_job:
   when: on_success
   image: python:3.10
   script:
-    - python pyproject.toml bdist_wheel
-    # an alternative approach is to install and run:
+    - poetry build
     - pip install dist/*
-    # run the command here
   artifacts:
     paths:
       - dist/*.whl
