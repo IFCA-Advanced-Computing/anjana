@@ -18,6 +18,9 @@ cache:
 default:
   before_script:
     - python --version  # For debugging
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
     - pip install tox
     - pip install poetry
 
