@@ -49,7 +49,7 @@ def suppress_identifiers(
 @beartype()
 def apply_hierarchy(
     data: typing.Union[typing.List, np.ndarray], hierarchies: dict, level: int
-) -> list:
+) -> typing.Union[typing.List, np.ndarray]:
     """Apply the given level of a hierarchy for a quasi-identifier.
 
     :param data: data under study.
@@ -62,7 +62,7 @@ def apply_hierarchy(
     :type level: int
 
     :return: column with the given level of hierarchy applied.
-    :rtype: list
+    :rtype: numpy array
     """
     num_level = len(hierarchies.keys()) - 1
     if level > num_level:
