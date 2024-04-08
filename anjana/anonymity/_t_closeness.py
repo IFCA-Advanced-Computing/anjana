@@ -14,23 +14,25 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import typing
 import numpy as np
 import pandas as pd
 import pycanon
 from anjana.anonymity.utils import utils
 from copy import copy
-from anjana.anonymity import k_anonymity_aux
+from anjana.anonymity import k_anonymity_inner
+from beartype import beartype
+from beartype import typing
 
 
+@beartype()
 def t_closeness(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: str,
     k: int,
-    t: float,
-    supp_level: float,
+    t: typing.Union[float, int],
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using t-closeness and k-anonymity.
@@ -66,7 +68,10 @@ def t_closeness(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
-    data_kanon, supp_records, gen_level = k_anonymity_aux(
+    if t < 0 or t > 1:
+        raise ValueError(f"Invalid value of t for t-closeness, t={t}")
+
+    data_kanon, supp_records, gen_level = k_anonymity_inner(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 

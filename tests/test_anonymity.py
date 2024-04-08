@@ -1,6 +1,8 @@
 import pandas as pd
 from anjana import anonymity
 import pycanon
+from copy import copy
+import numpy as np
 
 
 class TestAdult:
@@ -181,3 +183,63 @@ class TestAdult:
             self.hierarchies,
         )
         assert len(data_anon) == 0
+
+
+class TestHospital:
+    data = pd.read_csv("./examples/data/hospital_extended.csv")
+
+    ident = ["name"]
+    quasi_ident = ["age", "gender", "city"]
+    sens_att = "disease"
+    k = 2
+    l_div = 2
+    supp_level = 0
+    hierarchies = {
+        "age": dict(pd.read_csv("./examples/hierarchies/age.csv", header=None)),
+        "gender": {
+            0: data["gender"].values,
+            1: np.array(["*"] * len(data["gender"].values)),
+        },
+        "city": {0: data["city"].values, 1: np.array(["*"] * len(data["city"].values))},
+    }
+
+    def test_k_anon(self):
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.k,
+            self.supp_level,
+            self.hierarchies,
+        )
+
+        data_anon_real = copy(self.data)
+        data_anon_real[self.ident] = "*"
+        hierarchy_age = self.hierarchies["age"]
+        pos = []
+        for elem in data_anon_real["age"].values:
+            pos.append(np.where(hierarchy_age[0].values == elem)[0][0])
+        data_anon_real["age"] = hierarchy_age[2].values[pos]
+        assert data_anon_real.equals(data_anon)
+
+    def test_l_div(self):
+        data_anon = anonymity.l_diversity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            self.l_div,
+            self.supp_level,
+            self.hierarchies,
+        )
+
+        data_anon_real = copy(self.data)
+        data_anon_real[self.ident] = "*"
+        hierarchy_age = self.hierarchies["age"]
+        pos = []
+        for elem in data_anon_real["age"].values:
+            pos.append(np.where(hierarchy_age[0].values == elem)[0][0])
+        data_anon_real["age"] = hierarchy_age[2].values[pos]
+        data_anon_real["city"] = "*"
+        assert data_anon_real.equals(data_anon)

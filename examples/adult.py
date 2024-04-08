@@ -59,7 +59,7 @@ end = time.time()
 print(f"Elapsed time: {end-start}")
 print(f"Value of k calculated: {pycanon.anonymity.k_anonymity(data_anon, quasi_ident)}")
 
-# Elapsed time: 1.1014823913574219
+# Elapsed time: 0.9592475891113281
 # Value of k calculated: 10
 
 data_anon.to_csv("adult_k10.csv")

@@ -22,6 +22,7 @@ default:
     - virtualenv venv
     - source venv/bin/activate
     - pip install tox
+    - pip install poetry
 
 lint_job:
   stage: lint
@@ -59,10 +60,8 @@ build_job:
   when: on_success
   image: python:3.10
   script:
-    - python setup.py bdist_wheel
-    # an alternative approach is to install and run:
-    - pip install dist/*
-    # run the command here
+    - poetry build
+    - pip install dist/anjana-0.0.1-py3-none-any.whl
   artifacts:
     paths:
       - dist/*.whl

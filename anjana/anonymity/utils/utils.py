@@ -16,11 +16,13 @@
 
 """Module with utils for the anonymization tools."""
 
-import typing
 import numpy as np
 import pandas as pd
+from beartype import beartype
+from beartype import typing
 
 
+@beartype()
 def suppress_identifiers(
     data: pd.DataFrame, ident: typing.Union[typing.List, np.ndarray]
 ):
@@ -37,15 +39,21 @@ def suppress_identifiers(
     :rtype: pandas dataframe
     """
     for i in ident:
+        if i not in data.columns:
+            raise ValueError(f"Identifier {i} is not a column in the given dataset")
         data[i] = ["*"] * len(data)
+
     return data
 
 
-def apply_hierarchy(data: list, hierarchies: dict, level: int):
-    """Remove the identifiers from a dataset.
+@beartype()
+def apply_hierarchy(
+    data: typing.Union[typing.List, np.ndarray], hierarchies: dict, level: int
+):
+    """Apply the given level of a hierarchy for a quasi-identifier.
 
     :param data: data under study.
-    :type data: pandas dataframe
+    :type data: list, numpy array
 
     :param hierarchies: hierarchies for generalizing a given QI.
     :type hierarchies: dictionary with the hierarchies and the levels
@@ -59,6 +67,11 @@ def apply_hierarchy(data: list, hierarchies: dict, level: int):
     num_level = len(hierarchies.keys()) - 1
     if level > num_level:
         raise ValueError("Error, invalid hierarchy level")
+    if not isinstance(hierarchies[level], pd.Series):
+        hierarchies[level] = pd.Series(hierarchies[level])
+    if not isinstance(hierarchies[level - 1], pd.Series):
+        hierarchies[level - 1] = pd.Series(hierarchies[level - 1])
+
     pos = []
     for elem in data:
         pos.append(np.where(hierarchies[level - 1].values == elem)[0][0])
@@ -66,6 +79,7 @@ def apply_hierarchy(data: list, hierarchies: dict, level: int):
     return data_anon
 
 
+@beartype()
 def check_gen_level(
     data: pd.DataFrame,
     quasi_ident: typing.Union[typing.List, np.ndarray],

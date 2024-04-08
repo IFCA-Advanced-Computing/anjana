@@ -14,23 +14,25 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import typing
 import numpy as np
 import pandas as pd
 import pycanon
 from anjana.anonymity.utils import utils
 from copy import copy
-from anjana.anonymity import k_anonymity_aux
+from anjana.anonymity import k_anonymity_inner
+from beartype import beartype
+from beartype import typing
 
 
+@beartype()
 def delta_disclosure(
     data: pd.DataFrame,
     ident: typing.Union[typing.List, np.ndarray],
     quasi_ident: typing.Union[typing.List, np.ndarray],
     sens_att: str,
     k: int,
-    delta: float,
-    supp_level: float,
+    delta: typing.Union[float, int],
+    supp_level: typing.Union[float, int],
     hierarchies: dict,
 ) -> pd.DataFrame:
     """Anonymize a dataset using delta-disclosure privacy and k-anonymity.
@@ -66,7 +68,10 @@ def delta_disclosure(
     :return: anonymized data.
     :rtype: pandas dataframe
     """
-    data_kanon, supp_records, gen_level = k_anonymity_aux(
+    if delta < 0:
+        raise ValueError(f"Invalid value of delta for delta-disclosure, delta={delta}")
+
+    data_kanon, supp_records, gen_level = k_anonymity_inner(
         data, ident, quasi_ident, k, supp_level, hierarchies
     )
 
