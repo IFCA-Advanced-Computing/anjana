@@ -25,7 +25,7 @@ from beartype import typing
 @beartype()
 def suppress_identifiers(
     data: pd.DataFrame, ident: typing.Union[typing.List, np.ndarray]
-):
+) -> pd.DataFrame:
     """Remove the identifiers from a dataset.
 
     :param data: data under study.
@@ -49,7 +49,7 @@ def suppress_identifiers(
 @beartype()
 def apply_hierarchy(
     data: typing.Union[typing.List, np.ndarray], hierarchies: dict, level: int
-):
+) -> list:
     """Apply the given level of a hierarchy for a quasi-identifier.
 
     :param data: data under study.
