@@ -19,6 +19,7 @@ default:
   before_script:
     - python --version  # For debugging
     - pip install tox
+    - pip install poetry
 
 lint_job:
   stage: lint
