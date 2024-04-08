@@ -15,14 +15,6 @@ cache:
     - .tox/
     - venv/
 
-default:
-  before_script:
-    - python --version  # For debugging
-    - pip install virtualenv
-    - virtualenv venv
-    - source venv/bin/activate
-    - pip install tox
-
 lint_job:
   stage: lint
   # Official language image. Look for the different tagged releases at:
