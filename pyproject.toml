@@ -4,7 +4,7 @@ version = "0.0.1"
 description = "ANJANA is an open source framework for applying different anonymity techniques."
 authors = [
     "Judith Sáinz-Pardo Díaz <sainzpardo@ifca.unican.es>",
-    "Álvaro López García <aloga@ifca.unican.es>
+    "Álvaro López García <aloga@ifca.unican.es>"
 ]
 maintainers = ["Judith Sáinz-Pardo Díaz <sainzpardo@ifca.unican.es>"]
 license = "Apache License 2.0"
