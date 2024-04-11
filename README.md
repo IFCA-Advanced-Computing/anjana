@@ -34,7 +34,8 @@ For anonymizing your data you need to introduce:
 ### Example: apply _k-anonymity_, _ℓ-diversity_ and _t-closeness_ to the [adult dataset](https://archive.ics.uci.edu/dataset/2/adult) with some predefined hierarchies:
 ```python
 import pandas as pd
-from anonymity import k_anonymity, l_diversity, t_closeness
+import anjana
+from anjana.anonymity import k_anonymity, l_diversity, t_closeness
 
 # Read and process the data
 data = pd.read_csv("adult.csv") 
