@@ -12,7 +12,7 @@ Install the repository in a ``virtualenv`` using ``pip``:
 
     virtualenv .venv
     source .venv/bin/activate
-    pip install git+https://gitlab.ifca.es/privacy-security/anjana.git
+    pip install anjana
 
 
 Example usage
