@@ -10,7 +10,7 @@ maintainers = ["Judith Sáinz-Pardo Díaz <sainzpardo@ifca.unican.es>"]
 license = "Apache License 2.0"
 readme = "README.md"
 repository = "https://gitlab.ifca.es/privacy-security/anjana"
-keywords = ["anonymiy", "privacy"]
+keywords = ["anonymity", "privacy"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
