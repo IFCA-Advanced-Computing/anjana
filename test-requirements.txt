@@ -1,3 +1,10 @@
+# anjana
+pandas==2.1.4
+pycanon==1.0.1.post2
+tabulate==0.9.0
+typing_extensions==4.9.0
+beartype==0.17.2
+
 # docs
 sphinx==7.2.6
 pydata-sphinx-theme==0.15.2
