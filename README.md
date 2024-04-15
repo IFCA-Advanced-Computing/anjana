@@ -1,6 +1,5 @@
 # ANJANA
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE)
-[![Pipeline Status](https://gitlab.ifca.es/privacy-security/anjana/badges/main/pipeline.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/pipelines)
 [![codecov](https://codecov.io/gh/IFCA-Advanced-Computing/anjana/graph/badge.svg?token=AVI53GZ7YD)](https://codecov.io/gh/IFCA-Advanced-Computing/anjana)
 
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
