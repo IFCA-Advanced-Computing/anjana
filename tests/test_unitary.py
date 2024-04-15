@@ -46,6 +46,11 @@ class TestInvalidValues(unittest.TestCase):
         ),
     }
 
+    def supp_identifiers(self):
+        ident = ["id", "name"]
+        with self.assertRaises(ValueError):
+            anonymity.utils.suppress_identifiers(self.data, ident)
+
     def test_k_neg(self):
         k = -1
         supp_level = 50
