@@ -463,3 +463,80 @@ class TestInvalidValues(unittest.TestCase):
                 supp_level,
                 self.hierarchies,
             )
+
+    def test_return_k_anonymity(self):
+        k = 2
+        supp_level = 50
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            k,
+            supp_level,
+            self.hierarchies,
+        )
+        assert isinstance(data_anon, pd.DataFrame)
+
+    def test_return_l_div(self):
+        k = 2
+        l_div = 2
+        supp_level = 50
+        data_anon = anonymity.l_diversity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            k,
+            l_div,
+            supp_level,
+            self.hierarchies,
+        )
+        assert isinstance(data_anon, pd.DataFrame)
+
+    def test_return_t_closs(self):
+        k = 2
+        t = 0.8
+        supp_level = 50
+        data_anon = anonymity.t_closeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            k,
+            t,
+            supp_level,
+            self.hierarchies,
+        )
+        assert isinstance(data_anon, pd.DataFrame)
+
+    def test_return_basic_beta(self):
+        k = 2
+        beta = 0.8
+        supp_level = 50
+        data_anon = anonymity.basic_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            k,
+            beta,
+            supp_level,
+            self.hierarchies,
+        )
+        assert isinstance(data_anon, pd.DataFrame)
+
+    def test_return_enhanced_beta(self):
+        k = 2
+        beta = 0.8
+        supp_level = 50
+        data_anon = anonymity.enhanced_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            k,
+            beta,
+            supp_level,
+            self.hierarchies,
+        )
+        assert isinstance(data_anon, pd.DataFrame)
