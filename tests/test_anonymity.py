@@ -1,5 +1,6 @@
 import pandas as pd
 from anjana import anonymity
+from anjana.anonymity import utils
 import pycanon
 from copy import copy
 import numpy as np
@@ -54,6 +55,12 @@ class TestAdult:
             pd.read_csv("./examples/hierarchies/country.csv", header=None)
         ),
     }
+
+    def test_supp_ident(self):
+        data_anon = anonymity.utils.suppress_identifiers(self.data, self.ident)
+        data_anon_real = copy(self.data)
+        data_anon_real["race"] = "*"
+        assert data_anon_real.equals(data_anon)
 
     def test_k_anon(self):
         data_anon = anonymity.k_anonymity(

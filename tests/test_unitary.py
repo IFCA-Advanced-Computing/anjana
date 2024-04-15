@@ -1,4 +1,5 @@
 import unittest
+import anjana
 from anjana import anonymity
 import pandas as pd
 import beartype
@@ -46,10 +47,10 @@ class TestInvalidValues(unittest.TestCase):
         ),
     }
 
-    def supp_identifiers(self):
+    def test_supp_identifiers(self):
         ident = ["id", "name"]
         with self.assertRaises(ValueError):
-            anonymity.utils.suppress_identifiers(self.data, ident)
+            anjana.anonymity.utils.suppress_identifiers(self.data, ident)
 
     def test_k_neg(self):
         k = -1
