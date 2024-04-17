@@ -5,7 +5,7 @@
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
 
 
-**:lock: Anonymity as major assurance of personal data privacy :busts_in_silhouette:**
+**Anonymity as major assurance of personal data privacy:**
 
 ANJANA is a Python library for anonymizing sensitive data.
 
