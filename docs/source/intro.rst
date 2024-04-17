@@ -1,5 +1,5 @@
 First steps
-###############
+###########
 
 Start protecting the privacy of your data using ANJANA!
 
@@ -14,14 +14,14 @@ First, we strongly recommend the use of a virtual environment. In linux:
    source .venv/bin/activate
 
 
-**Using `pip`_**:
+Using `pip`_:
 
 Install anjana (linux and windows):
 
 .. code-block:: console
    pip install anjana
 
-**Using git**:
+Using git:
 
 Install the most updated version of anjana (linux and windows):
 

@@ -72,3 +72,7 @@ Define your own hierarchies
 
 All the anonymity functions available in ANJANA receive a dictionary with the hierarchies to be applied to the quasi-identifiers. In particular, this dictionary has as key the names of the columns that are quasi-identifiers to which a hierarchy is to be applied (it may happen that you do not want to generalize some QIs and therefore no hierarchy is to be applied to them, just do not include them in this dictionary). The value for each key (QI) is formed by a dictionary in such a way that the value 0 has as value the raw column (as it is in the original dataset), the value 1 corresponds to the first level of transformation to be applied, in relation to the values of the original column, and so on with as many keys as levels of hierarchies have been established.
 
+
+.. _adult dataset: https://archive.ics.uci.edu/ml/datasets/adult
+.. _examples folder of the repository: https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/tree/main/examples
+
