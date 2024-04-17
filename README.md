@@ -134,7 +134,7 @@ For a better understanding, let's look at the following example. Supose that we 
 | Johnson   | 17  | Male   | Kerala     | Heart-related  |
 | John      | 19  | Male   | Kerala     | Viralinfection |
 
-Then, in order to define the hierarquies we have to create the following dictionary:
+Then, in order to create the hierarquies we can define the following dictionary:
 
 ```python
 age = data['age'].values
