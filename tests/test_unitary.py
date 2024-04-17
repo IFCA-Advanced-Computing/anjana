@@ -540,3 +540,19 @@ class TestInvalidValues(unittest.TestCase):
             self.hierarchies,
         )
         assert isinstance(data_anon, pd.DataFrame)
+
+    def test_return_delta_dic(self):
+        k = 2
+        delta = 0.8
+        supp_level = 50
+        data_anon = anonymity.delta_disclosure(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            k,
+            delta,
+            supp_level,
+            self.hierarchies,
+        )
+        assert isinstance(data_anon, pd.DataFrame)

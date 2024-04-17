@@ -191,6 +191,158 @@ class TestAdult:
         )
         assert len(data_anon) == 0
 
+    def test_basic_beta0(self):
+        data_anon = anonymity.basic_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            0,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 0 == pycanon.anonymity.basic_beta_likeness(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_enhanced_beta0(self):
+        data_anon = anonymity.enhanced_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            0,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 0 == pycanon.anonymity.enhanced_beta_likeness(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_basic_beta10(self):
+        data_anon = anonymity.basic_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            10,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 10 >= pycanon.anonymity.basic_beta_likeness(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_enhanced_beta10(self):
+        data_anon = anonymity.enhanced_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            10,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 10 >= pycanon.anonymity.enhanced_beta_likeness(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_delta0(self):
+        data_anon = anonymity.delta_disclosure(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            0,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 0 == pycanon.anonymity.delta_disclosure(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_delta10(self):
+        data_anon = anonymity.delta_disclosure(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            10,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 10 >= pycanon.anonymity.delta_disclosure(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_l_div_k1(self):
+        data_anon = anonymity.l_diversity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            1,
+            self.l_div,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert self.l_div <= pycanon.anonymity.l_diversity(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_l_div1(self):
+        data_anon = anonymity.l_diversity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            1,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 1 <= pycanon.anonymity.l_diversity(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_entropy_l_div1(self):
+        data_anon = anonymity.entropy_l_diversity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            1,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 1 <= pycanon.anonymity.entropy_l_diversity(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
+    def test_rec_c1_l_div2(self):
+        data_anon = anonymity.recursive_c_l_diversity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            1,
+            2,
+            self.supp_level,
+            self.hierarchies,
+        )
+        c_cal, l_cal = pycanon.anonymity.recursive_c_l_diversity(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+        assert 1 <= c_cal and 1 <= l_cal
+
 
 class TestHospital:
     data = pd.read_csv("./examples/data/hospital_extended.csv")
