@@ -74,29 +74,29 @@ All the anonymity functions available in ANJANA receive a dictionary with the hi
 
 For a better understanding, let's look at the following example. Supose that we have the following simulated dataset (extracted from the `hospital_extended.csv`_ dataset used for testing purposes) with *age*, *gender* and *city* as quasi-identifiers, *name* as identifier and *disease* as sensitive attribute. Regarding the QI, we want to apply the following hierarquies: interval of 5 years (first level) and 10 years (second level) for the *age*. Suppression as first level for both *gender* and *city*.
 
-+-----------+-----+--------+------------+----------------+
-| name      | age | gender | city       | disease        |
-+===========+=====+========+============+================+
-| Ramsha    | 29  | Female | Tamil Nadu | Cancer         |
-+-----------+-----+--------+------------+----------------+
-| Yadu      | 24  | Female | Kerala     | Viralinfection |
-+-----------+-----+--------+------------+----------------+
-| Salima    | 28  | Female | Tamil Nadu | TB             |
-+-----------+-----+--------+------------+----------------+
-| Sunny     | 27  | Male   | Karnataka  | No illness     |
-+-----------+-----+--------+------------+----------------+
-| Joan      | 24  | Female | Kerala     | Heart-related  |
-+-----------+-----+--------+------------+----------------+
-| Bahuksana | 23  | Male   | Karnataka  | TB             |
-+-----------+-----+--------+------------+----------------+
-| Rambha    | 19  | Male   | Kerala     | Cancer         |
-+-----------+-----+--------+------------+----------------+
-| Kishor    | 29  | Male   | Karnataka  | Heart-related  |
-+-----------+-----+--------+------------+----------------+
-| Johnson   | 17  | Male   | Kerala     | Heart-related  |
-+-----------+-----+--------+------------+----------------+
-| John      | 19  | Male   | Kerala     | Viralinfection |
-+-----------+-----+--------+------------+----------------+
++-----------+-----+--------+------------+------------=----+
+| name      | age | gender | city       | disease         |
++===========+=====+========+============+=================+
+| Ramsha    | 29  | Female | Tamil Nadu | Cancer          |
++-----------+-----+--------+------------+-----------------+
+| Yadu      | 24  | Female | Kerala     | Viral infection |
++-----------+-----+--------+------------+-----------------+
+| Salima    | 28  | Female | Tamil Nadu | TB              |
++-----------+-----+--------+------------+-----------------+
+| Sunny     | 27  | Male   | Karnataka  | No illness      |
++-----------+-----+--------+------------+-----------------+
+| Joan      | 24  | Female | Kerala     | Heart-related   |
++-----------+-----+--------+------------+-----------------+
+| Bahuksana | 23  | Male   | Karnataka  | TB              |
++-----------+-----+--------+------------+-----------------+
+| Rambha    | 19  | Male   | Kerala     | Cancer          |
++-----------+-----+--------+------------+-----------------+
+| Kishor    | 29  | Male   | Karnataka  | Heart-related   |
++-----------+-----+--------+------------+-----------------+
+| Johnson   | 17  | Male   | Kerala     | Heart-related   |
++-----------+-----+--------+------------+-----------------+
+| John      | 19  | Male   | Kerala     | Viral infection |
++-----------+-----+--------+------------+-----------------+
 
 Then, in order to create the hierarquies we can define the following dictionary:
 

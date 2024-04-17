@@ -73,8 +73,6 @@ Example with the `adult dataset`_, anonymizing using (:math:`\alpha`,k)-anonymit
     )
 
 
-.. warning::
-  The ANJANA library is currently under heavy development.
 
 .. _adult dataset: https://archive.ics.uci.edu/ml/datasets/adult
 .. _examples folder of the repository: https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/tree/main/examples
