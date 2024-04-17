@@ -28,7 +28,7 @@ Install the most updated version of anjana (linux and windows), using git:
    pip install git+https://github.com/IFCA-Advanced-Computing/anjana.git
 
 
-Example usage
+Usage example
 *************
 
 Example with the `adult dataset`_, anonymizing using (:math:`\alpha`,k)-anonymity (the data and hierarquies can be found in the `examples folder of the repository`_):
