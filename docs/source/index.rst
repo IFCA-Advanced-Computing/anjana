@@ -3,9 +3,7 @@ ANJANA
 
 ANJANA is a `Python`_ library which allows the application of different anonymity
 techiniques based on a set of identifiers, quasi-identifiers (QI) and a sensitive 
-attribute. It's easy to use and fast. For example, k-anonymity can be applied in 
-approximately one second for a dataset containing more than 30000 rows and six 
-quasi-identifiers. 
+attribute. It's easy to use and fast. 
 The following anonymity techniques can be applied:
 
 * k-anonymity.
@@ -27,7 +25,9 @@ User documentation
    :maxdepth: 4
 
    intro
+   getting_started
    modules
+   multiple_sa
    
 
 License

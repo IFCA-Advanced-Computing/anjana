@@ -1,18 +1,33 @@
-Getting started
+First steps
 ###############
 
 Start protecting the privacy of your data using ANJANA!
 
 Install
 ***********************
-
-Install the repository in a ``virtualenv`` using ``pip``:
+    
+First, we strongly recommend the use of a virtual environment. In linux: 
 
 .. code-block:: console
 
-    virtualenv .venv
-    source .venv/bin/activate
-    pip install anjana
+   virtualenv .venv -p python3
+   source .venv/bin/activate
+
+
+**Using `pip`_**:
+
+Install anjana (linux and windows):
+
+.. code-block:: console
+   pip install anjana
+
+**Using git**:
+
+Install the most updated version of anjana (linux and windows):
+
+.. code-block:: console
+
+   pip install git+https://github.com/IFCA-Advanced-Computing/anjana.git
 
 
 Example usage
@@ -60,5 +75,9 @@ Example with the `adult dataset`_, anonymizing using (:math:`\alpha`,k)-anonymit
     )
 
 
+.. warning::
+  The ANJANA library is currently under heavy development.
+
 .. _adult dataset: https://archive.ics.uci.edu/ml/datasets/adult
 .. _examples folder of the repository: https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/tree/main/examples
+.. _pip: https://pypi.org/project/anjana/
