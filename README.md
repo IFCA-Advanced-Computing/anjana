@@ -5,7 +5,7 @@
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
 
 
-**Anonymity as major assurance of personal data privacy**
+**:lock: Anonymity as major assurance of personal data privacy :busts_in_silhouette:**
 
 ANJANA is a Python library for anonymizing sensitive data.
 
@@ -20,7 +20,7 @@ The following anonymity techniques are implemented, based on the Python library 
 * _Enhanced β-likeness_.
 * _δ-disclosure privacy_.
 
-## Installation
+## :bulb: Installation
 First, we strongly recommend the use of a virtual environment. In linux: 
 ```bash
 virtualenv .venv -p python3
@@ -42,7 +42,7 @@ Install the most updated version of anjana (linux and windows):
 pip install git+https://github.com/IFCA-Advanced-Computing/anjana.git
 ```
 
-## Getting started
+## :rocket: Getting started
 
 For anonymizing your data you need to introduce:
 * The **pandas dataframe** with the data to be anonymized. Each column can contain: indentifiers, quasi-indentifiers or sensitive attributes.
@@ -160,10 +160,10 @@ hierarchies = {
 }
 ```
 
-## License
+## :scroll: License
 This project is licensed under the [Apache 2.0 license](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE?ref_type=heads).
 
-## Project status
+## :warning: Project status
 This project is under active development.
 
 ## Funding and acknowledgments
