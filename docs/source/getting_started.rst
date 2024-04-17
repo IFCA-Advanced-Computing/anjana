@@ -74,7 +74,7 @@ All the anonymity functions available in ANJANA receive a dictionary with the hi
 
 For a better understanding, let's look at the following example. Supose that we have the following simulated dataset (extracted from the `hospital_extended.csv`_ dataset used for testing purposes) with *age*, *gender* and *city* as quasi-identifiers, *name* as identifier and *disease* as sensitive attribute. Regarding the QI, we want to apply the following hierarquies: interval of 5 years (first level) and 10 years (second level) for the *age*. Suppression as first level for both *gender* and *city*.
 
-+-----------+-----+--------+------------+------------=----+
++-----------+-----+--------+------------+-----------------+
 | name      | age | gender | city       | disease         |
 +===========+=====+========+============+=================+
 | Ramsha    | 29  | Female | Tamil Nadu | Cancer          |
