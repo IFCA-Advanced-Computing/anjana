@@ -138,7 +138,7 @@ Then, in order to create the hierarquies we can define the following dictionary:
 
 ```python
 age = data['age'].values
-# Values: [29 24 28 27 24 23 19 29 17 19] (please note that this can be automatized)
+# Values: [29 24 28 27 24 23 19 29 17 19] (note that the following can be automatized)
 age_5years = ['[25, 30)', '[20, 25)', '[25, 30)',
               '[25, 30)', '[20, 25)', '[20, 25)',
               '[15, 20)', '[25, 30)', '[15, 20)', '[15, 20)']
