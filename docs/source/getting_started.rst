@@ -78,14 +78,23 @@ For a better understanding, let's look at the following example. Supose that we 
 | name      | age | gender | city       | disease        |
 +===========+=====+========+============+================+
 | Ramsha    | 29  | Female | Tamil Nadu | Cancer         |
++-----------+-----+--------+------------+----------------+
 | Yadu      | 24  | Female | Kerala     | Viralinfection |
++-----------+-----+--------+------------+----------------+
 | Salima    | 28  | Female | Tamil Nadu | TB             |
++-----------+-----+--------+------------+----------------+
 | Sunny     | 27  | Male   | Karnataka  | No illness     |
++-----------+-----+--------+------------+----------------+
 | Joan      | 24  | Female | Kerala     | Heart-related  |
++-----------+-----+--------+------------+----------------+
 | Bahuksana | 23  | Male   | Karnataka  | TB             |
++-----------+-----+--------+------------+----------------+
 | Rambha    | 19  | Male   | Kerala     | Cancer         |
++-----------+-----+--------+------------+----------------+
 | Kishor    | 29  | Male   | Karnataka  | Heart-related  |
++-----------+-----+--------+------------+----------------+
 | Johnson   | 17  | Male   | Kerala     | Heart-related  |
++-----------+-----+--------+------------+----------------+
 | John      | 19  | Male   | Kerala     | Viralinfection |
 +-----------+-----+--------+------------+----------------+
 
