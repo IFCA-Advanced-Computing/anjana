@@ -14,16 +14,14 @@ First, we strongly recommend the use of a virtual environment. In linux:
    source .venv/bin/activate
 
 
-Using `pip`_:
-
-Install anjana (linux and windows):
+Install anjana (linux and windows) using `pip`_:
 
 .. code-block:: console
+
    pip install anjana
 
-Using git:
 
-Install the most updated version of anjana (linux and windows):
+Install the most updated version of anjana (linux and windows), using git:
 
 .. code-block:: console
 
