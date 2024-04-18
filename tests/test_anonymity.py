@@ -402,3 +402,40 @@ class TestHospital:
         data_anon_real["age"] = hierarchy_age[2].values[pos]
         data_anon_real["city"] = "*"
         assert data_anon_real.equals(data_anon)
+
+    def test_get_transformation(self):
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.k,
+            self.supp_level,
+            self.hierarchies,
+        )
+
+        transformation = utils.get_transformation(
+            data_anon, self.quasi_ident, self.hierarchies
+        )
+        assert [2, 0, 0] == transformation
+
+    def test_get_transformation_2qi(self):
+        hierarchies = {
+            "age": dict(pd.read_csv("./examples/hierarchies/age.csv", header=None)),
+            "city": {
+                0: self.data["city"].values,
+                1: np.array(["*"] * len(self.data["city"].values)),
+            },
+        }
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.k,
+            self.supp_level,
+            hierarchies,
+        )
+
+        transformation = utils.get_transformation(
+            data_anon, self.quasi_ident, self.hierarchies
+        )
+        assert [2, 0, 0] == transformation
