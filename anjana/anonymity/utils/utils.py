@@ -109,3 +109,42 @@ def check_gen_level(
                 gen_level[qi] = level
 
     return gen_level
+
+
+@beartype()
+def get_transformation(
+    data_anon: pd.DataFrame,
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    hierarchies: dict,
+) -> list:
+    """Get the transformation applied for anonymizing the data.
+
+    Example: a transformation (0,1,2,0) means:
+    - Level 0 of generalization for th 1st QI
+    - Level 1 of generalization for th 2nd QI
+    - Level 2 of generalization for th 3rd QI
+    - Level 0 of generalization for the 4th QI
+
+    :param data_anon: data under study.
+    :type data_anon: pandas dataframe
+
+    :param quasi_ident: list with the name of the columns of the dataframe
+        that are quasi-identifiers.
+    :type quasi_ident: list of strings
+
+    :param hierarchies: hierarchies for generalizing the QI.
+    :type hierarchies: dictionary containing one dictionary for QI
+        with the hierarchies and the levels
+
+    :return: transformation applied
+    :rtype: list
+    """
+    gen_level = check_gen_level(data_anon, quasi_ident, hierarchies)
+    transformation = []
+    for qi in quasi_ident:
+        if qi in gen_level.keys():
+            transformation.append(gen_level[qi])
+        else:
+            transformation.append(0)
+
+    return transformation

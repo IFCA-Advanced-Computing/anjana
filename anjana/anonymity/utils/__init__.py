@@ -15,6 +15,16 @@
 # under the License.
 
 """Package containing auxiliary functions for performing the anonymization."""
-from .utils import suppress_identifiers, apply_hierarchy, check_gen_level
+from .utils import (
+    suppress_identifiers,
+    apply_hierarchy,
+    check_gen_level,
+    get_transformation,
+)
 
-__all__ = ["suppress_identifiers", "apply_hierarchy", "check_gen_level"]
+__all__ = [
+    "suppress_identifiers",
+    "apply_hierarchy",
+    "check_gen_level",
+    "get_transformation",
+]
