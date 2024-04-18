@@ -6,6 +6,7 @@ Transformation applied
 .. note::
 
    An example would be the following. Suppose we have the quasi-identifiers from the adult dataset example: *age*, *education*, *marital-status*, *occupation*, *sex* and *native-country*. If we get the transformation [4, 2, 1, 2, 2, 0, 0], this would mean the following:
+   
    - Hierarchy level 4 has been applied for *age*, with level 0 being the original value in the database.
    - Hierarchy level 2 has been applied for *education*.
    - Hierarchy level 1 has been applied for *marital-status*.
