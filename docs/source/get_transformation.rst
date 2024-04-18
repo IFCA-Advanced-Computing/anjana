@@ -12,10 +12,10 @@ Transformation applied
    - Hierarchy level 2 has been applied for *occupation*.
    - No hierarchy has been applied for *sex* and *native-country*.
    
-   If a quasi-identifier has been used to anonymize the data, even if no hierarchy has been included for it, it will appear in the corresponding order in the list with the transofrmation (with the value 0, because no generalization has been applied).
+   If a quasi-identifier has been used to anonymize the data, even if no hierarchy has been included for it, it will appear in the corresponding order in the list with the transformation (with the value 0, because no generalization level has been applied).
    
    
-To obtain this transofrmation, the ``get_transformation()`` function from the ``utils`` submodule can be used as follows:
+To obtain this transofrmation, the ``get_transformation()`` function from the ``utils`` submodule can be used as follows (the data and hierarquies can be found in the `examples folder of the repository`_):
 
 .. code-block:: python 
 
@@ -63,4 +63,10 @@ To obtain this transofrmation, the ``get_transformation()`` function from the ``
    
    # Get the transformation applied:
    transformation_anon = utils.get_transformation(data_anon, quasi_ident, hierarchies)
+   # The transformation obtained is: [1, 0, 0, 0, 0, 0], which means that
+   # the QI age has been generalized using the first hierarchy level.
+   # No hierarchy has been applied for the other five QIs.
+   
+   
+.. _examples folder of the repository: https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/tree/main/examples
 
