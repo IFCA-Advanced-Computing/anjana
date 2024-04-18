@@ -103,10 +103,11 @@ def check_gen_level(
     """
     gen_level = {}
     for qi in quasi_ident:
-        for level in hierarchies[qi].keys():
-            hierarchy_level = set(hierarchies[qi][level])
-            if set(data[qi].values).issubset(hierarchy_level):
-                gen_level[qi] = level
+        if qi in hierarchies.keys():
+            for level in hierarchies[qi].keys():
+                hierarchy_level = set(hierarchies[qi][level])
+                if set(data[qi].values).issubset(hierarchy_level):
+                    gen_level[qi] = level
 
     return gen_level
 
