@@ -1,0 +1,16 @@
+,age,education,marital-status,occupation,sex,native-country,race,salary-class
+18605,23,Some-college,Never-married,Protective-serv,Male,United-States, White, <=50K
+18607,60,HS-grad,Widowed,Other-service,Female,United-States, White, <=50K
+15243,39,HS-grad,Divorced,Machine-op-inspct,Male,United-States, White, <=50K
+32254,31,Some-college,Married-civ-spouse,Other-service,Male,?, Asian-Pac-Islander, >50K
+26999,60,Assoc-voc,Widowed,Other-service,Female,United-States, Black, <=50K
+31906,48,Assoc-acdm,Married-civ-spouse,Prof-specialty,Female,United-States, White, >50K
+24055,35,Bachelors,Separated,Craft-repair,Male,United-States, White, <=50K
+1367,53,Some-college,Widowed,Adm-clerical,Female,United-States, Black, <=50K
+10071,28,Some-college,Married-civ-spouse,Protective-serv,Male,United-States, White, <=50K
+3258,19,HS-grad,Never-married,Handlers-cleaners,Male,United-States, White, <=50K
+21265,19,Some-college,Never-married,Adm-clerical,Male,United-States, White, <=50K
+9156,58,Some-college,Married-civ-spouse,Sales,Female,United-States, White, <=50K
+21647,36,Some-college,Married-civ-spouse,Sales,Male,United-States, White, >50K
+21773,23,10th,Never-married,Other-service,Female,United-States, White, <=50K
+14255,68,HS-grad,Widowed,?,Male,United-States, White, <=50K

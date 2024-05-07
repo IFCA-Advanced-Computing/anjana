@@ -46,6 +46,20 @@ k = 10
 delta = 3
 supp_level = 50
 
+all_cols = [
+    "age",
+    "education",
+    "marital-status",
+    "occupation",
+    "sex",
+    "native-country",
+    "race",
+    "salary-class",
+]
+sample = data.sample(n=15)
+sample = sample.loc[:, all_cols]
+sample.to_csv("test.csv")
+
 hierarchies = {
     "age": dict(pd.read_csv("hierarchies/age.csv", header=None)),
     "education": dict(pd.read_csv("hierarchies/education.csv", header=None)),
@@ -67,6 +81,14 @@ print(
     f"{pycanon.anonymity.delta_disclosure(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 1.1014823913574219
+# Elapsed time: 4.623609304428101
 # Value of k calculated: 392
 # Value of delta calculated: 2.159243878369523
+
+print(f"Number of records suppressed: {len(data) - len(data_anon)}")
+print(
+    f"Percentage of records suppressed: {100 * (len(data) - len(data_anon)) / len(data)} %"
+)
+
+# Number of records suppressed: 14234
+# Percentage of records suppressed: 43.71487362181751 %

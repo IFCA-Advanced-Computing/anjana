@@ -67,6 +67,14 @@ print(
     f"{pycanon.anonymity.l_diversity(data_anon, quasi_ident, [sens_att])}"
 )
 
+print(f"Number of records suppressed: {len(data) - len(data_anon)}")
+print(
+    f"Percentage of records suppressed: {100 * (len(data) - len(data_anon)) / len(data)} %"
+)
+
+# Number of records suppressed: 14234
+# Percentage of records suppressed: 43.71487362181751 %
+
 # Elapsed time: 1.1014823913574219
 # Value of k calculated: 72
 # Value of l calculated: 2
