@@ -16,7 +16,7 @@
 
 import numpy as np
 import pandas as pd
-from anjana.anonymity import k_anonymity, l_diversity
+from anjana.anonymity import k_anonymity, l_diversity, utils
 
 data = pd.read_csv("data/hospital_extended.csv")
 
@@ -26,34 +26,11 @@ sens_attr = "disease"
 k = 2
 supp_level = 0
 ages = data["age"].values
-inf, sup = 0, 100
-values5 = np.arange(inf, sup + 1, 5)
-int5 = []
-for i in ages:
-    print(i)
-    lower = np.searchsorted(values5, i)
-    if lower == 0:
-        lower = 1
-    print(f"[{values5[lower - 1]}, {values5[lower]})")
-    int5.append(f"[{values5[lower - 1]}, {values5[lower]})")
-
-
-def create_hierarchy(data, inf, sup, step):
-    values = np.arange(inf, sup + 1, step)
-    interval = []
-    for num in data:
-        lower = np.searchsorted(values, num)
-        if lower == 0:
-            lower = 1
-        interval.append(f"[{values[lower - 1]}, {values[lower]})")
-    return interval
-
-
 hierarchies = {
     "age": {
         0: data["age"].values,
-        1: create_hierarchy(data["age"].values, 0, 100, 5),
-        2: create_hierarchy(data["age"].values, 0, 100, 10),
+        1: utils.generate_intervals(data["age"].values, 0, 100, 5),
+        2: utils.generate_intervals(data["age"].values, 0, 100, 10),
     },
     "gender": {
         0: data["gender"].values,
