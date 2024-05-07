@@ -153,6 +153,7 @@ def alpha_k_anonymity(
             data_kanon, quasi_ident
         )
 
+        k_ec = []
         alpha_ec = []
         for ec in equiv_class:
             data_temp = data_kanon.iloc[
@@ -164,14 +165,17 @@ def alpha_k_anonymity(
                 for s in values
             ]
             alpha_ec.append(max(alpha_s))
+            k_ec.append(len(ec))
 
         if alpha > min(alpha_ec):
             if max(alpha_ec) <= alpha:
                 return data_kanon
 
-            data_ec = pd.DataFrame({"equiv_class": equiv_class, "alpha": alpha_ec})
+            data_ec = pd.DataFrame(
+                {"equiv_class": equiv_class, "alpha": alpha_ec, "k": k_ec}
+            )
             data_ec_alpha = data_ec[data_ec.alpha > alpha]
-            records_sup = sum(data_ec_alpha.alpha.values)
+            records_sup = sum(data_ec_alpha.k.values)
             if (records_sup + supp_records) * 100 / len(data) <= supp_level:
                 ec_elim = np.concatenate(
                     [

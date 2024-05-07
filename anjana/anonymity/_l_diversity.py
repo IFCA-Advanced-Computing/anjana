@@ -254,6 +254,7 @@ def recursive_c_l_diversity(
         equiv_class = pycanon.anonymity.utils.aux_anonymity.get_equiv_class(
             data_kanon, quasi_ident
         )
+        k_ec = []
         c_ec = []
         for ec in equiv_class:
             data_temp = data_kanon.iloc[
@@ -262,12 +263,15 @@ def recursive_c_l_diversity(
             values = np.unique(data_temp[sens_att].values)
             r_ec = np.sort([len(data_temp[data_temp[sens_att] == s]) for s in values])
             c_ec.append(np.floor(r_ec[0] / sum(r_ec[(l_div - 1) :]) + 1))
+            k_ec.append(len(ec))
             if max(c_ec) < c:
                 f"Recursive (c,l)-diversity cannot be achieved for l={l_div} and c={c}"
             else:
-                data_ec = pd.DataFrame({"equiv_class": equiv_class, "c_ec": c_ec})
+                data_ec = pd.DataFrame(
+                    {"equiv_class": equiv_class, "c_ec": c_ec, "k": k_ec}
+                )
                 data_ec_c = data_ec[data_ec.c_ec < c]
-                records_sup = sum(data_ec_c.c_ec.values)
+                records_sup = sum(data_ec_c.k.values)
                 if (records_sup + supp_records) * 100 / len(data) <= supp_level:
                     ec_elim = np.concatenate(
                         [
@@ -358,11 +362,14 @@ def _l_diversity_inner(
         ec_sensitivity = [
             len(np.unique(data_kanon.iloc[ec][sens_att])) for ec in equiv_class
         ]
+        k_ec = [len(ec) for ec in equiv_class]
 
         if l_div > max(ec_sensitivity):
-            data_ec = pd.DataFrame({"equiv_class": equiv_class, "l": ec_sensitivity})
+            data_ec = pd.DataFrame(
+                {"equiv_class": equiv_class, "l": ec_sensitivity, "k": k_ec}
+            )
             data_ec_l = data_ec[data_ec.l < l_div]
-            records_sup = sum(data_ec_l.l.values)
+            records_sup = sum(data_ec_l.k.values)
             if (records_sup + supp_records_k) * 100 / len(data) <= supp_level:
                 ec_elim = np.concatenate(
                     [

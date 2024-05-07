@@ -79,7 +79,7 @@ def delta_disclosure(
     quasi_ident_gen = copy(quasi_ident)
 
     if delta_real <= delta:
-        print(f"The data verifies delta-disclosure with t={delta_real}")
+        print(f"The data verifies delta-disclosure with delta={delta_real}")
         return data_kanon
 
     while delta_real > delta:
