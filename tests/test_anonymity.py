@@ -73,6 +73,17 @@ class TestAdult:
         )
         assert self.k <= pycanon.anonymity.k_anonymity(data_anon, self.quasi_ident)
 
+    def test_k_anon_100sup(self):
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.k,
+            100,
+            self.hierarchies,
+        )
+        assert self.k <= pycanon.anonymity.k_anonymity(data_anon, self.quasi_ident)
+
     def test_l_div(self):
         data_anon = anonymity.l_diversity(
             self.data,
