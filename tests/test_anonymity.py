@@ -450,3 +450,23 @@ class TestHospital:
             data_anon, self.quasi_ident, self.hierarchies
         )
         assert [2, 0, 0] == transformation
+
+    def test_generate_intervals(self):
+        int5 = utils.generate_intervals(self.data["age"].values, 0, 100, 5)
+        # [29 24 23 22 24 28 27 24 23 19 29 17 19]
+        real_interval = [
+            "[25, 30)",
+            "[20, 25)",
+            "[20, 25)",
+            "[20, 25)",
+            "[20, 25)",
+            "[25, 30)",
+            "[25, 30)",
+            "[20, 25)",
+            "[20, 25)",
+            "[20, 25)",
+            "[25, 30)",
+            "[15, 20)",
+            "[15, 20)",
+        ]
+        assert real_interval == int5
