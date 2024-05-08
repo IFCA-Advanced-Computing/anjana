@@ -1,5 +1,5 @@
 # ANJANA
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/IFCA-Advanced-Computing/anjana/blob/main/LICENSE)
 [![codecov](https://codecov.io/gh/IFCA-Advanced-Computing/anjana/graph/badge.svg?token=AVI53GZ7YD)](https://codecov.io/gh/IFCA-Advanced-Computing/anjana)
 
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
@@ -20,7 +20,7 @@ The following anonymity techniques are implemented, based on the Python library 
 * _Enhanced β-likeness_.
 * _δ-disclosure privacy_.
 
-## :bulb: Installation
+## Installation
 First, we strongly recommend the use of a virtual environment. In linux: 
 ```bash
 virtualenv .venv -p python3
@@ -42,15 +42,15 @@ Install the most updated version of anjana (linux and windows):
 pip install git+https://github.com/IFCA-Advanced-Computing/anjana.git
 ```
 
-## :rocket: Getting started
+## Getting started
 
 For anonymizing your data you need to introduce:
-* The **pandas dataframe** with the data to be anonymized. Each column can contain: indentifiers, quasi-indentifiers or sensitive attributes.
+* The **pandas dataframe** with the data to be anonymized. Each column can contain: identifiers, quasi-indentifiers or sensitive attributes.
 * The **list with the names of the identifiers** in the dataframe, in order to suppress them.
 * The **list with the names of the quasi-identifiers** in the dataframe.
 * The **sentive attribute** (only one) in case of applying other techniques than _k-anonymity_.
 * The **level of anonymity to be applied**, e.g. _k_ (for _k-anonymity_), _ℓ_ (for _ℓ-diversity_), _t_ (for _t-closeness_), _β_ (for _basic or enhanced β-likeness_), etc.
-* Maximum **level of record suppression** allowed (from 0 to 100).
+* Maximum **level of record suppression** allowed (from 0 to 100, acting as the percentage of suppressed records).
 * Dictionary containing one dictionary for each quasi-identifier with the **hierarchies** and the levels.
 
 ### Example: apply _k-anonymity_, _ℓ-diversity_ and _t-closeness_ to the [adult dataset](https://archive.ics.uci.edu/dataset/2/adult) with some predefined hierarchies:
@@ -137,6 +137,8 @@ For a better understanding, let's look at the following example. Supose that we 
 Then, in order to create the hierarquies we can define the following dictionary:
 
 ```python
+import numpy as np
+
 age = data['age'].values
 # Values: [29 24 28 27 24 23 19 29 17 19] (note that the following can be automatized)
 age_5years = ['[25, 30)', '[20, 25)', '[25, 30)',
@@ -160,10 +162,34 @@ hierarchies = {
 }
 ```
 
-## :scroll: License
-This project is licensed under the [Apache 2.0 license](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE?ref_type=heads).
+You can also use the function _generate_intervals()_ from _utils_ for creating the interval-based hierarchy as follows:
 
-## :warning: Project status
+```python
+import numpy as np
+from anjana.anonymity import utils
+
+age = data['age'].values
+
+hierarchies = {
+    "age": {
+        0: data["age"].values,
+        1: utils.generate_intervals(data["age"].values, 0, 100, 5),
+        2: utils.generate_intervals(data["age"].values, 0, 100, 10),
+    },
+    "gender": {
+        0: data["gender"].values,
+        1: np.array(["*"] * len(data["gender"].values)) # Suppression
+    },
+    "city": {0: data["city"].values,
+             1: np.array(["*"] * len(data["city"].values))} # Suppression
+}
+```
+
+
+## License
+This project is licensed under the [Apache 2.0 license](https://github.com/IFCA-Advanced-Computing/anjana/blob/main/LICENSE).
+
+## Project status
 This project is under active development.
 
 ## Funding and acknowledgments
