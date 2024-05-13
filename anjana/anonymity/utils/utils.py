@@ -158,9 +158,12 @@ def generate_intervals(
     sup: typing.Union[int, float],
     step: int,
 ) -> list:
-    """Given a quasi-identifier of numeric type, creates a list containing an
+    """
+    Generate intervals as hierarchies.
+    
+    Given a quasi-identifier of numeric type, creates a list containing an
     interval-based generalization (hierarchy) of the values of the quasi-identifier.
-    The intervals will have the length entered in the parameter step.
+    The intervals will have the length entered in step.
 
     :param quasi_ident: values of the quasi-identifier on which the interval-based
         generalization is to be obtained
