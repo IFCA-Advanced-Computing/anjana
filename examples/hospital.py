@@ -20,6 +20,8 @@ from anjana.anonymity import k_anonymity, l_diversity, utils
 
 data = pd.read_csv("data/hospital_extended.csv")
 
+print(data)
+
 ident = ["name"]
 quasi_ident = ["age", "gender", "city"]
 sens_attr = "disease"
@@ -36,10 +38,14 @@ hierarchies = {
         0: data["gender"].values,
         1: np.array(["*"] * len(data["gender"].values)),
     },
-    "city": {0: data["city"].values, 1: np.array(["*"] * len(data["city"].values))},
+    "city": {
+        0: data["city"].values,
+        1: np.array(["*"] * len(data["city"].values))
+    },
 }
 data_anon = k_anonymity(data, ident, quasi_ident, k, supp_level, hierarchies)
 print(data_anon)
+print(utils.get_transformation(data_anon, quasi_ident, hierarchies))
 
 #    name       age  gender        city   religion          disease
 # 0     *  [20, 30[  Female  Tamil Nadu      Hindu           Cancer
@@ -61,6 +67,8 @@ data_anon = l_diversity(
     data, ident, quasi_ident, sens_attr, k, l_div, supp_level, hierarchies
 )
 print(data_anon)
+print(utils.get_transformation(data_anon, quasi_ident, hierarchies))
+
 # 0     *  [20, 30[  Female    *      Hindu           Cancer
 # 1     *  [20, 30[    Male    *      Hindu           Cancer
 # 2     *  [20, 30[    Male    *      Hindu           Cancer
