@@ -1,4 +1,4 @@
-cff-version: 0.0.2
+cff-version: 0.0.3
 message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Sáinz-Pardo Díaz"
@@ -8,6 +8,6 @@ authors:
   given-names: "Álvaro"
   orcid: "https://orcid.org/0000-0002-0013-4602"
 title: "ANJANA"
-version: 0.0.3
+version: 0.1.0
 date-released: 2024-04-18
 url: "https://github.com/IFCA-Advanced-Computing/anjana"
