@@ -47,6 +47,12 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: Install and configure poetry
+        run: |
+          pip install poetry
+          poetry config virtualenvs.create false
+          poetry install
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
