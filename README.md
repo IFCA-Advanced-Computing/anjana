@@ -5,6 +5,10 @@
 ![PyPI](https://img.shields.io/pypi/v/anjana)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/anjana)
 [![Documentation Status](https://readthedocs.org/projects/anjana/badge/?version=latest)](https://anjana.readthedocs.io/en/latest/?badge=latest)
+[![release-please](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/release-please.yml/badge.svg)](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/release-please.yml)
+[![Publish Package in PyPI](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/pypi.yml/badge.svg)](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/pypi.yml)
+[![CI/CD Pipeline](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/cicd.yml/badge.svg)](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/cicd.yml)
+[![Code Coverage](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/.codecov.yml/badge.svg)](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/.codecov.yml)
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
 
 **Anonymity as major assurance of personal data privacy:**
