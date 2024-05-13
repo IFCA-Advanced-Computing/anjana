@@ -79,7 +79,7 @@ class TestInvalidValues(unittest.TestCase):
             )
 
     def test_alpha_neg(self):
-        k = -1
+        k = 2
         alpha = -1
         supp_level = 50
         with self.assertRaises(ValueError):
@@ -95,7 +95,7 @@ class TestInvalidValues(unittest.TestCase):
             )
 
     def test_alpha_high(self):
-        k = 0
+        k = 2
         alpha = 1.5
         supp_level = 50
         with self.assertRaises(ValueError):

@@ -1,7 +1,7 @@
 Getting started
 ###############
 
-Example with the `adult dataset`_, anonymizing using three techniques: k-anonymity, :math:`\ell`-diversity and t-closeness (the data and hierarquies can be found in the `examples folder of the repository`_):
+Example with the `adult dataset`_, anonymizing using three techniques: k-anonymity, :math:`\ell`-diversity and t-closeness (the data and hierarchies can be found in the `examples folder of the repository`_):
 
 .. code-block:: python
 
@@ -98,7 +98,7 @@ For a better understanding, let's look at the following example. Supose that we 
 | John      | 19  | Male   | Kerala     | Viral infection |
 +-----------+-----+--------+------------+-----------------+
 
-Then, in order to create the hierarquies we can define the following dictionary:
+Then, in order to create the hierarchies we can define the following dictionary:
 
 .. code-block:: python
 

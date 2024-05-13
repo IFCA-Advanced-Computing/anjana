@@ -149,3 +149,41 @@ def get_transformation(
             transformation.append(0)
 
     return transformation
+
+
+@beartype()
+def generate_intervals(
+    quasi_ident: typing.Union[typing.List, np.ndarray],
+    inf: typing.Union[int, float],
+    sup: typing.Union[int, float],
+    step: int,
+) -> list:
+    """Given a quasi-identifier of numeric type, creates a list containing an
+    interval-based generalization (hierarchy) of the values of the quasi-identifier.
+    The intervals will have the length entered in the parameter step.
+
+    :param quasi_ident: values of the quasi-identifier on which the interval-based
+        generalization is to be obtained
+    :type quasi_ident: list or numpy array
+
+    :param inf: lower value of the set of intervals
+    :type inf: int or float
+
+    :param sup: bigger value of the set of intervals
+    :type sup: int or float
+
+    :param step: spacing between values of the intervals
+    :type step: int
+
+    :return: list with the intervals associated with the given values
+    :rtype: list
+    """
+    values = np.arange(inf, sup + 1, step)
+    interval = []
+    for num in quasi_ident:
+        lower = np.searchsorted(values, num)
+        if lower == 0:
+            lower = 1
+        interval.append(f"[{values[lower - 1]}, {values[lower]})")
+
+    return interval

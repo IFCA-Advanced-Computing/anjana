@@ -73,6 +73,17 @@ class TestAdult:
         )
         assert self.k <= pycanon.anonymity.k_anonymity(data_anon, self.quasi_ident)
 
+    def test_k_anon_100sup(self):
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.k,
+            100,
+            self.hierarchies,
+        )
+        assert self.k <= pycanon.anonymity.k_anonymity(data_anon, self.quasi_ident)
+
     def test_l_div(self):
         data_anon = anonymity.l_diversity(
             self.data,
@@ -439,3 +450,23 @@ class TestHospital:
             data_anon, self.quasi_ident, self.hierarchies
         )
         assert [2, 0, 0] == transformation
+
+    def test_generate_intervals(self):
+        int5 = utils.generate_intervals(self.data["age"].values, 0, 100, 5)
+        # [29 24 23 22 24 28 27 24 23 19 29 17 19]
+        real_interval = [
+            "[25, 30)",
+            "[20, 25)",
+            "[20, 25)",
+            "[20, 25)",
+            "[20, 25)",
+            "[25, 30)",
+            "[25, 30)",
+            "[20, 25)",
+            "[20, 25)",
+            "[15, 20)",
+            "[25, 30)",
+            "[15, 20)",
+            "[15, 20)",
+        ]
+        assert real_interval == int5

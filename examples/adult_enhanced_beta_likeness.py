@@ -44,7 +44,7 @@ ident = ["race"]
 sens_att = "salary-class"
 k = 10
 beta = 0.5
-supp_level = 50
+supp_level = 100
 
 hierarchies = {
     "age": dict(pd.read_csv("hierarchies/age.csv", header=None)),
@@ -67,6 +67,14 @@ print(
     f"{pycanon.anonymity.enhanced_beta_likeness(data_anon, quasi_ident, [sens_att])}"
 )
 
-# Elapsed time: 1.1014823913574219
-# Value of k calculated: 4950
-# Value of beta (enhanced) calculated: 0.28299597682058103
+# Elapsed time: 2.7565865516662598
+# Value of k calculated: 2098
+# Value of beta (enhanced) calculated: 0.41781323480116844
+
+print(f"Number of records suppressed: {len(data) - len(data_anon)}")
+print(
+    f"Percentage of records suppressed: {100 * (len(data) - len(data_anon)) / len(data)} %"
+)
+
+# Number of records suppressed: 23686
+# Percentage of records suppressed: 72.74346610976322 %

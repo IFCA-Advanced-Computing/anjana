@@ -70,3 +70,11 @@ print(
 # Elapsed time: 3.8912816047668457
 # Value of k calculated: 72
 # Value of t calculated: 0.4737011422127644
+
+print(f"Number of records suppressed: {len(data) - len(data_anon)}")
+print(
+    f"Percentage of records suppressed: {100 * (len(data) - len(data_anon)) / len(data)} %"
+)
+
+# Number of records suppressed: 14234
+# Percentage of records suppressed: 43.71487362181751 %

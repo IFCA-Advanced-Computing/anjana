@@ -68,3 +68,10 @@ print(f"Value of alpha calculated: {alpha_cal}")
 # Elapsed time: 1.1014823913574219
 # Value of k calculated: 10
 # Value of alpha calculated: 0.8
+
+print(f"Number of records suppressed: {len(data) - len(data_anon)}")
+print(
+    f"Percentage of records suppressed: {100 * (len(data) - len(data_anon)) / len(data)} %"
+)
+# Number of records suppressed: 14234
+# Percentage of records suppressed: 43.71487362181751 %

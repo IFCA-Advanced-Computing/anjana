@@ -16,25 +16,36 @@
 
 import numpy as np
 import pandas as pd
-from anjana.anonymity import k_anonymity, l_diversity
+from anjana.anonymity import k_anonymity, l_diversity, utils
 
 data = pd.read_csv("data/hospital_extended.csv")
+
+print(data)
 
 ident = ["name"]
 quasi_ident = ["age", "gender", "city"]
 sens_attr = "disease"
 k = 2
 supp_level = 0
+ages = data["age"].values
 hierarchies = {
-    "age": dict(pd.read_csv("../examples/hierarchies/age.csv", header=None)),
+    "age": {
+        0: data["age"].values,
+        1: utils.generate_intervals(data["age"].values, 0, 100, 5),
+        2: utils.generate_intervals(data["age"].values, 0, 100, 10),
+    },
     "gender": {
         0: data["gender"].values,
         1: np.array(["*"] * len(data["gender"].values)),
     },
-    "city": {0: data["city"].values, 1: np.array(["*"] * len(data["city"].values))},
+    "city": {
+        0: data["city"].values,
+        1: np.array(["*"] * len(data["city"].values))
+    },
 }
 data_anon = k_anonymity(data, ident, quasi_ident, k, supp_level, hierarchies)
 print(data_anon)
+print(utils.get_transformation(data_anon, quasi_ident, hierarchies))
 
 #    name       age  gender        city   religion          disease
 # 0     *  [20, 30[  Female  Tamil Nadu      Hindu           Cancer
@@ -56,6 +67,8 @@ data_anon = l_diversity(
     data, ident, quasi_ident, sens_attr, k, l_div, supp_level, hierarchies
 )
 print(data_anon)
+print(utils.get_transformation(data_anon, quasi_ident, hierarchies))
+
 # 0     *  [20, 30[  Female    *      Hindu           Cancer
 # 1     *  [20, 30[    Male    *      Hindu           Cancer
 # 2     *  [20, 30[    Male    *      Hindu           Cancer

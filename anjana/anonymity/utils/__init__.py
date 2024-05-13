@@ -20,6 +20,7 @@ from .utils import (
     apply_hierarchy,
     check_gen_level,
     get_transformation,
+    generate_intervals,
 )
 
 __all__ = [
@@ -27,4 +28,5 @@ __all__ = [
     "apply_hierarchy",
     "check_gen_level",
     "get_transformation",
+    "generate_intervals",
 ]
