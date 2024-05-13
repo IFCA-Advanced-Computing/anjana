@@ -38,10 +38,7 @@ hierarchies = {
         0: data["gender"].values,
         1: np.array(["*"] * len(data["gender"].values)),
     },
-    "city": {
-        0: data["city"].values,
-        1: np.array(["*"] * len(data["city"].values))
-    },
+    "city": {0: data["city"].values, 1: np.array(["*"] * len(data["city"].values))},
 }
 data_anon = k_anonymity(data, ident, quasi_ident, k, supp_level, hierarchies)
 print(data_anon)

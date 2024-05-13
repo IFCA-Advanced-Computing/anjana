@@ -160,7 +160,7 @@ def generate_intervals(
 ) -> list:
     """
     Generate intervals as hierarchies.
-    
+
     Given a quasi-identifier of numeric type, creates a list containing an
     interval-based generalization (hierarchy) of the values of the quasi-identifier.
     The intervals will have the length entered in step.
