@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/IFCA-Advanced-Computing/anjana/graph/badge.svg?token=AVI53GZ7YD)](https://codecov.io/gh/IFCA-Advanced-Computing/anjana)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11184468.svg)](https://doi.org/10.5281/zenodo.11184468)
 ![PyPI](https://img.shields.io/pypi/v/anjana)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/anjana)
+[![Downloads](https://static.pepy.tech/badge/anjana)](https://pepy.tech/project/anjana)
 [![Documentation Status](https://readthedocs.org/projects/anjana/badge/?version=latest)](https://anjana.readthedocs.io/en/latest/?badge=latest)
 [![release-please](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/release-please.yml/badge.svg)](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/release-please.yml)
 [![Publish Package in PyPI](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/pypi.yml/badge.svg)](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/pypi.yml)
