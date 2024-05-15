@@ -1,9 +1,9 @@
 ANJANA
 =============================================================================
 
-|License| |codecov| |DOI| |PyPI| |Downloads| |Documentation Status|
+|License| |codecov| |DOI| |Downloads| |Documentation Status|
 |release-please| |Publish Package in PyPI| |CI/CD Pipeline| |Code Coverage|
-|Python version|
+|Python version| |PyPI|
 
 ANJANA is a `Python`_ library which allows the application of different anonymity
 techniques based on a set of identifiers, quasi-identifiers (QI) and a sensitive 

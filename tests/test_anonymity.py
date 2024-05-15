@@ -188,6 +188,21 @@ class TestAdult:
         )
         assert len(data_anon) == 0
 
+    def test_entropy_l1(self):
+        data_anon = anonymity.entropy_l_diversity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            1,
+            self.supp_level,
+            self.hierarchies,
+        )
+        assert 1 == pycanon.anonymity.entropy_l_diversity(
+            data_anon, self.quasi_ident, [self.sens_att]
+        )
+
     def test_rec_c_l(self):
         data_anon = anonymity.recursive_c_l_diversity(
             self.data,
@@ -365,7 +380,11 @@ class TestHospital:
     l_div = 2
     supp_level = 0
     hierarchies = {
-        "age": dict(pd.read_csv("./examples/hierarchies/age.csv", header=None)),
+        "age": {
+            0: data["age"].values,
+            1: utils.generate_intervals(data["age"].values, 0, 100, 5),
+            2: utils.generate_intervals(data["age"].values, 0, 100, 10),
+        },
         "gender": {
             0: data["gender"].values,
             1: np.array(["*"] * len(data["gender"].values)),
@@ -392,6 +411,18 @@ class TestHospital:
         data_anon_real["age"] = hierarchy_age[2].values[pos]
         assert data_anon_real.equals(data_anon)
 
+    def test_k_anon_big(self):
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            30,
+            self.supp_level,
+            self.hierarchies,
+        )
+
+        assert data_anon.equals(pd.DataFrame())
+
     def test_l_div(self):
         data_anon = anonymity.l_diversity(
             self.data,
@@ -414,6 +445,32 @@ class TestHospital:
         data_anon_real["city"] = "*"
         assert data_anon_real.equals(data_anon)
 
+    def test_basic_beta0_supp0(self):
+        data_anon = anonymity.basic_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            0,
+            0,
+            self.hierarchies,
+        )
+        assert data_anon.equals(pd.DataFrame())
+
+    def test_enhanced_beta0_supp0(self):
+        data_anon = anonymity.enhanced_beta_likeness(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.sens_att,
+            self.k,
+            0,
+            0,
+            self.hierarchies,
+        )
+        assert data_anon.equals(pd.DataFrame())
+
     def test_get_transformation(self):
         data_anon = anonymity.k_anonymity(
             self.data,
@@ -431,7 +488,15 @@ class TestHospital:
 
     def test_get_transformation_2qi(self):
         hierarchies = {
-            "age": dict(pd.read_csv("./examples/hierarchies/age.csv", header=None)),
+            "age": {
+                0: self.data["age"].values,
+                1: utils.generate_intervals(
+                    self.data["age"].values, 0, 100, 5
+                ),
+                2: utils.generate_intervals(
+                    self.data["age"].values, 0, 100, 10
+                ),
+            },
             "city": {
                 0: self.data["city"].values,
                 1: np.array(["*"] * len(self.data["city"].values)),
@@ -447,7 +512,7 @@ class TestHospital:
         )
 
         transformation = utils.get_transformation(
-            data_anon, self.quasi_ident, self.hierarchies
+            data_anon, self.quasi_ident, hierarchies
         )
         assert [2, 0, 0] == transformation
 
