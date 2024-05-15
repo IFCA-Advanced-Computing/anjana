@@ -16,7 +16,7 @@
 
 import numpy as np
 import pandas as pd
-from anjana.anonymity import k_anonymity, l_diversity, utils
+from anjana.anonymity import k_anonymity, l_diversity, utils, basic_beta_likeness
 
 data = pd.read_csv("data/hospital_extended.csv")
 
