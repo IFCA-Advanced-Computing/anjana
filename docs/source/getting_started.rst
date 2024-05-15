@@ -124,6 +124,29 @@ Then, in order to create the hierarchies we can define the following dictionary:
                 1: np.array(["*"] * len(data["city"].values))} # Suppression
    }
 
+In addition, we can also use the function _generate_intervals()_ from _utils_ for creating the interval-based hierarchy as follows:
+
+.. code-block:: python
+
+    import numpy as np
+    from anjana.anonymity import utils
+
+    age = data['age'].values
+
+    hierarchies = {
+        "age": {
+            0: data["age"].values,
+            1: utils.generate_intervals(data["age"].values, 0, 100, 5),
+            2: utils.generate_intervals(data["age"].values, 0, 100, 10),
+        },
+        "gender": {
+            0: data["gender"].values,
+            1: np.array(["*"] * len(data["gender"].values)) # Suppression
+        },
+        "city": {0: data["city"].values,
+                 1: np.array(["*"] * len(data["city"].values))} # Suppression
+    }
+
 
 .. _adult dataset: https://archive.ics.uci.edu/ml/datasets/adult
 .. _examples folder of the repository: https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/tree/main/examples
