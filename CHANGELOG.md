@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/IFCA-Advanced-Computing/anjana/compare/v0.2.1...v0.2.2) (2024-05-15)
+
+
+### Bug Fixes
+
+* update dependencies ([7077e21](https://github.com/IFCA-Advanced-Computing/anjana/commit/7077e21be4252febb8fb033fa4cb4edd76a1d32e))
+
 ## [0.2.0](https://github.com/IFCA-Advanced-Computing/anjana/compare/v0.1.1...v0.2.0) (2024-05-13)
 
 
