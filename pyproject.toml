@@ -35,7 +35,7 @@ pandas = "2.2.2"
 pycanon = "1.0.1.post2"
 typing_extensions = "4.9.0"
 beartype = "0.17.2"
-docutils = "0.20.1"
+docutils = "0.21.2"
 
 
 [tool.poetry.group.dev.dependencies]
