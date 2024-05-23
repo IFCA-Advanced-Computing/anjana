@@ -1,7 +1,7 @@
 # ANJANA
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE)
 [![codecov](https://codecov.io/gh/IFCA-Advanced-Computing/anjana/graph/badge.svg?token=AVI53GZ7YD)](https://codecov.io/gh/IFCA-Advanced-Computing/anjana)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11184468.svg)](https://doi.org/10.5281/zenodo.11184468)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11184467.svg)](https://doi.org/10.5281/zenodo.11184467)
 ![PyPI](https://img.shields.io/pypi/v/anjana)
 [![Downloads](https://static.pepy.tech/badge/anjana)](https://pepy.tech/project/anjana)
 [![Documentation Status](https://readthedocs.org/projects/anjana/badge/?version=latest)](https://anjana.readthedocs.io/en/latest/?badge=latest)
