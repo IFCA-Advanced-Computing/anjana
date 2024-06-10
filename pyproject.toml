@@ -33,7 +33,7 @@ python = "^3.9"
 numpy = "1.26.4"
 pandas = "2.2.2"
 pycanon = "1.0.1.post2"
-typing_extensions = "4.12.1"
+typing_extensions = "4.12.2"
 beartype = "0.18.5"
 docutils = "0.21.2"
 
