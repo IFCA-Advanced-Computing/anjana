@@ -42,9 +42,6 @@ License
 ANJANA is licensed under Apache License Version 2.0 (http://www.apache.org/licenses/)
 
 
-.. warning::
-  The ANJANA library is currently under heavy development.
-  
   
 Indices and tables
 ==================
