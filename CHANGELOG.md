@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.0](https://github.com/IFCA-Advanced-Computing/anjana/compare/v0.2.2...v1.0.0) (2024-08-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* move to version 1.0.0
+
+### Features
+
+* move to version 1.0.0 ([368a5ca](https://github.com/IFCA-Advanced-Computing/anjana/commit/368a5ca52886a343de2af42cb90e5df4dbc7fafd))
+* move to version 1.0.0 ([ed06f0e](https://github.com/IFCA-Advanced-Computing/anjana/commit/ed06f0e4ce603bc01f1332d3cfdfa85b98bb5efa))
+
 ## [0.2.2](https://github.com/IFCA-Advanced-Computing/anjana/compare/v0.2.1...v0.2.2) (2024-05-15)
 
 
