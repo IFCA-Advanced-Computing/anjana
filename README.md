@@ -27,7 +27,7 @@ The following anonymity techniques are implemented, based on the Python library 
 * _δ-disclosure privacy_.
 
 ## Installation
-First, we strongly recommend the use of a virtual environment. In linux: 
+First, we strongly recommend the use of a virtual environment. In linux:
 ```bash
 virtualenv .venv -p python3
 source .venv/bin/activate
@@ -66,7 +66,7 @@ import anjana
 from anjana.anonymity import k_anonymity, l_diversity, t_closeness
 
 # Read and process the data
-data = pd.read_csv("adult.csv") 
+data = pd.read_csv("adult.csv")
 data.columns = data.columns.str.strip()
 cols = [
     "workclass",
@@ -123,7 +123,7 @@ The previous code can be executed in less than 4 seconds for the more than 30,00
 
 ### Define your own hierarchies
 
-All the anonymity functions available in ANJANA receive a dictionary with the hierarchies to be applied to the quasi-identifiers. In particular, this dictionary has as key the names of the columns that are quasi-identifiers to which a hierarchy is to be applied (it may happen that you do not want to generalize some QIs and therefore no hierarchy is to be applied to them, just do not include them in this dictionary). The value for each key (QI) is formed by a dictionary in such a way that the value 0 has as value the raw column (as it is in the original dataset), the value 1 corresponds to the first level of transformation to be applied, in relation to the values of the original column, and so on with as many keys as levels of hierarchies have been established. 
+All the anonymity functions available in ANJANA receive a dictionary with the hierarchies to be applied to the quasi-identifiers. In particular, this dictionary has as key the names of the columns that are quasi-identifiers to which a hierarchy is to be applied (it may happen that you do not want to generalize some QIs and therefore no hierarchy is to be applied to them, just do not include them in this dictionary). The value for each key (QI) is formed by a dictionary in such a way that the value 0 has as value the raw column (as it is in the original dataset), the value 1 corresponds to the first level of transformation to be applied, in relation to the values of the original column, and so on with as many keys as levels of hierarchies have been established.
 
 For a better understanding, let's look at the following example. Supose that we have the following simulated dataset (extracted from the [_hospital_extended.csv_](https://github.com/IFCA-Advanced-Computing/anjana/blob/main/examples/data/hospital_extended.csv) dataset used for testing purposes) with _age_, _gender_ and _city_ as quasi-identifiers, _name_ as identifier and _disease_ as sensitive attribute. Regarding the QI, we want to apply the following hierarquies: interval of 5 years (first level) and 10 years (second level) for the _age_. Suppression as first level for both _gender_ and _city_.
 
@@ -199,10 +199,10 @@ This project is licensed under the [Apache 2.0 license](https://github.com/IFCA-
 This project is under active development.
 
 ## Funding and acknowledgments
-This work is funded by European Union through the SIESTA project (Horizon Europe) under Grant number 101131957.
+This work is funded by European Union through the SIESTA project (Horizon Europe) under Grant number [101131957](https://cordis.europa.eu/project/id/101131957).
 <p>
-<img align="center" width="250" src="https://ec.europa.eu/regional_policy/images/information-sources/logo-download-center/eu_funded_en.jpg">
-<img align="center" width="250" src="https://eosc.eu/wp-content/uploads/2024/01/SIESTA-Logo-1.png">
+<img align="center" width="250" src="https://raw.githubusercontent.com/SIESTA-eu/.github/main/profile/EN-Funded.jpg">
+<img align="center" width="250" src="https://raw.githubusercontent.com/SIESTA-eu/.github/main/profile/logo.png">
 <p>
 
 
@@ -210,7 +210,7 @@ This work is funded by European Union through the SIESTA project (Horizon Europe
 **_Note: Anjana and the mythology of Cantabria_**
 <p align="center">
     <i>
-"La Anjana" is a character from the mythology of Cantabria. Known as the good fairy of Cantabria, generous and protective of all people, she helps the poor, the suffering and those who stray in the forest. 
+"La Anjana" is a character from the mythology of Cantabria. Known as the good fairy of Cantabria, generous and protective of all people, she helps the poor, the suffering and those who stray in the forest.
     </i>
 </p>
 <p align="center">
