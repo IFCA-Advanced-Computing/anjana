@@ -5,7 +5,7 @@ If this library is being useful for your research and you want to contribute to 
 ### Add a new feature
 
 If you are using anjana and have developed a new feature (especially implementing an additional anonymity functionality), and you want to contribute to the community, follow the steps below:
-1. Fork the repository
+1. Fork the repository.
 2. Clone the local repository:
    
    ```bash
@@ -19,13 +19,13 @@ If you are using anjana and have developed a new feature (especially implementin
     source .venv/bin/activate
     pip install -e .
 
-4. Create a new brach (e.g. develop)
+4. Create a new brach (e.g. develop).
 
      ```bash
      git checkout -b develop
 
 5. Add the functionalities you want to contribute.
-6. Include commits that are descriptive and clear about the changes made and functionality added. Make sure you create Semantic Commit Messages (conventional commits) including the use of flags such as `feat`, `fix`, `refactor`, `test`, etc
+6. Include commits that are descriptive and clear about the changes made and functionality added. Make sure you create Semantic Commit Messages (conventional commits) including the use of flags such as `feat`, `fix`, `refactor`, `test`, etc.
 7. Check the style and that linting is successfully executed by using `tox`.
 8. Check that the code coverage is greater than 90%:
 
