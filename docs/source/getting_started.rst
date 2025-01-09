@@ -149,6 +149,6 @@ In addition, we can also use the function _generate_intervals()_ from _utils_ fo
 
 
 .. _adult dataset: https://archive.ics.uci.edu/ml/datasets/adult
-.. _examples folder of the repository: https://gitlab.ifca.es/privacy-security/siesta-anonymity/-/tree/main/examples
+.. _examples folder of the repository: https://github.com/IFCA-Advanced-Computing/anjana/tree/main/examples/hierarchies
 .. _hospital_extended.csv: https://github.com/IFCA-Advanced-Computing/anjana/blob/main/examples/data/hospital_extended.csv
 
