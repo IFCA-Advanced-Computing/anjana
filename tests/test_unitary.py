@@ -1,6 +1,7 @@
 import unittest
 import anjana
 from anjana import anonymity
+from anjana.anonymity import utils
 import pandas as pd
 import beartype
 
@@ -556,3 +557,15 @@ class TestInvalidValues(unittest.TestCase):
             self.hierarchies,
         )
         assert isinstance(data_anon, pd.DataFrame)
+
+    def test_apply_transformation_neg(self):
+        with self.assertRaises(ValueError):
+            utils.apply_transformation(
+                self.data, self.quasi_ident, self.hierarchies, [-1, 1, 1]
+            )
+
+    def test_apply_transformation_out(self):
+        with self.assertRaises(ValueError):
+            utils.apply_transformation(
+                self.data, self.quasi_ident, self.hierarchies, [100, 1, 1]
+            )

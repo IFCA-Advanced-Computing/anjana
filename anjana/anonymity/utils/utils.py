@@ -222,6 +222,8 @@ def apply_transformation(
     for i, qi in enumerate(quasi_ident):
         hierarchy_qi = hierarchies[qi]
         level = transformation[i]
+        if level < 0:
+            raise ValueError("Error, invalid hierarchy level")
         if level > max(hierarchies[qi].keys()):
             raise ValueError("Error, invalid hierarchy level")
         actual = actual_transform[qi]
