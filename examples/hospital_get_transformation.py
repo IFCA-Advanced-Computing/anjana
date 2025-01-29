@@ -75,3 +75,18 @@ transformation_raw = utils.get_transformation(data, quasi_ident, hierarchies)
 print(transformation_raw)  # [0, 0, 0]
 transformation_anon = utils.get_transformation(data_anon, quasi_ident, hierarchies)
 print(transformation_anon)  # [2, 0, 1]
+
+# Testing the function apply_transformation
+data_transform1 = utils.apply_transformation(data, quasi_ident, hierarchies, [1, 1, 1])
+print(data_transform1)
+print(utils.get_transformation(data_transform1, quasi_ident, hierarchies))  # [1, 1, 1]
+
+data_transform2 = utils.apply_transformation(data, quasi_ident, hierarchies, [5, 1, 1])
+print(data_transform2)
+print(utils.get_transformation(data_transform2, quasi_ident, hierarchies))  # [5, 1, 1]
+
+data_transform3 = utils.apply_transformation(
+    data_anon, quasi_ident, hierarchies, [5, 1, 1]
+)
+print(data_transform3)
+print(utils.get_transformation(data_transform3, quasi_ident, hierarchies))  # [5, 1, 1]

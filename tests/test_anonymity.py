@@ -384,6 +384,8 @@ class TestHospital:
             0: data["age"].values,
             1: utils.generate_intervals(data["age"].values, 0, 100, 5),
             2: utils.generate_intervals(data["age"].values, 0, 100, 10),
+            3: utils.generate_intervals(data["age"].values, 0, 100, 20),
+            4: utils.generate_intervals(data["age"].values, 0, 100, 50),
         },
         "gender": {
             0: data["gender"].values,
@@ -490,12 +492,8 @@ class TestHospital:
         hierarchies = {
             "age": {
                 0: self.data["age"].values,
-                1: utils.generate_intervals(
-                    self.data["age"].values, 0, 100, 5
-                ),
-                2: utils.generate_intervals(
-                    self.data["age"].values, 0, 100, 10
-                ),
+                1: utils.generate_intervals(self.data["age"].values, 0, 100, 5),
+                2: utils.generate_intervals(self.data["age"].values, 0, 100, 10),
             },
             "city": {
                 0: self.data["city"].values,
@@ -515,6 +513,27 @@ class TestHospital:
             data_anon, self.quasi_ident, hierarchies
         )
         assert [2, 0, 0] == transformation
+
+    def test_apply_transformation_raw(self):
+        transformation = utils.get_transformation(
+            self.data, self.quasi_ident, self.hierarchies, [2, 0, 1]
+        )
+        assert [2, 0, 1] == transformation
+
+    def test_apply_transformation_anon(self):
+        data_anon = anonymity.k_anonymity(
+            self.data,
+            self.ident,
+            self.quasi_ident,
+            self.k,
+            self.supp_level,
+            self.hierarchies,
+        )
+
+        transformation = utils.get_transformation(
+            data_anon, self.quasi_ident, self.hierarchies, [4, 1, 1]
+        )
+        assert [4, 1, 1] == transformation
 
     def test_generate_intervals(self):
         int5 = utils.generate_intervals(self.data["age"].values, 0, 100, 5)
