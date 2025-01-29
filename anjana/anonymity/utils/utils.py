@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 from beartype import beartype
 from beartype import typing
+from copy import copy
 
 
 @beartype()
@@ -192,15 +193,15 @@ def get_transformation(
 
 @beartype()
 def apply_transformation(
-    data_anon: pd.DataFrame,
+    data: pd.DataFrame,
     quasi_ident: typing.Union[typing.List, np.ndarray],
     hierarchies: dict,
     transformation: list,
 ) -> pd.DataFrame:
     """Apply a given transformation to the data.
 
-    :param data_anon: data under study.
-    :type data_anon: pandas dataframe
+    :param data: data under study.
+    :type data: pandas dataframe
 
     :param quasi_ident: list with the name of the columns of the dataframe
         that are quasi-identifiers.
@@ -216,6 +217,7 @@ def apply_transformation(
     :return: dataset generalized with the transformation given
     :rtype: pandas dataframe
     """
+    data_anon = copy(data)
     actual_transform = check_gen_level(data_anon, quasi_ident, hierarchies)
     for i, qi in enumerate(quasi_ident):
         hierarchy_qi = hierarchies[qi]
