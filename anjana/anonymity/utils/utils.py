@@ -86,7 +86,7 @@ def apply_hierarchy_current(
     level: int,
     actual: int,
 ) -> typing.Union[typing.List, np.ndarray]:
-    """Apply certain level of a hierarchy for a quasi-identifier given the current level.
+    """Apply certain level of a hierarchy for a quasi-identifier given the current one.
 
     :param data: data under study.
     :type data: list, numpy array
