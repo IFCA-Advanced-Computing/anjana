@@ -384,8 +384,6 @@ class TestHospital:
             0: data["age"].values,
             1: utils.generate_intervals(data["age"].values, 0, 100, 5),
             2: utils.generate_intervals(data["age"].values, 0, 100, 10),
-            3: utils.generate_intervals(data["age"].values, 0, 100, 20),
-            4: utils.generate_intervals(data["age"].values, 0, 100, 50),
         },
         "gender": {
             0: data["gender"].values,
@@ -523,13 +521,27 @@ class TestHospital:
         )
 
     def test_apply_transformation_anon(self):
+        hierarchies = {
+            "age": {
+                0: self.data["age"].values,
+                1: utils.generate_intervals(self.data["age"].values, 0, 100, 5),
+                2: utils.generate_intervals(self.data["age"].values, 0, 100, 10),
+                3: utils.generate_intervals(self.data["age"].values, 0, 100, 20),
+                4: utils.generate_intervals(self.data["age"].values, 0, 100, 50),
+            },
+            "city": {
+                0: self.data["city"].values,
+                1: np.array(["*"] * len(self.data["city"].values)),
+            },
+        }
+
         data_anon = anonymity.k_anonymity(
             self.data,
             self.ident,
             self.quasi_ident,
             self.k,
             self.supp_level,
-            self.hierarchies,
+            hierarchies,
         )
 
         data_transform = utils.apply_transformation(
