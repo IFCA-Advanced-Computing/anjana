@@ -529,6 +529,10 @@ class TestHospital:
                 3: utils.generate_intervals(self.data["age"].values, 0, 100, 20),
                 4: utils.generate_intervals(self.data["age"].values, 0, 100, 50),
             },
+            "gender": {
+                0: self.data["gender"].values,
+                1: np.array(["*"] * len(self.data["gender"].values)),
+            },
             "city": {
                 0: self.data["city"].values,
                 1: np.array(["*"] * len(self.data["city"].values)),
