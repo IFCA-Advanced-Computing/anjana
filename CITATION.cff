@@ -8,7 +8,7 @@ authors:
   given-names: "Álvaro"
   orcid: "https://orcid.org/0000-0002-0013-4602"
 title: "ANJANA"
-version: 1.0.1
+version: 1.1.0
 date-released: 2024-05-13
 url: "https://github.com/IFCA-Advanced-Computing/anjana"
 identifiers:
@@ -16,5 +16,18 @@ identifiers:
     value: 10.5281/zenodo.11186382
   - type: doi
     value: 10.1038/s41597-024-04019-z
+references:
+  - type: article
+    authors:
+      - family-names: "Sáinz-Pardo Díaz"
+        given-names: "Judith"
+        orcid: "https://orcid.org/0000-0002-8387-578X"
+      - family-names: "López García"
+        given-names: "Álvaro"
+        orcid: "https://orcid.org/0000-0002-0013-4602"
+    title: "An Open Source Python Library for Anonymizing Sensitive Data"
+    journal: "Scientific Data"
+    year: "2024"
+    doi: "10.1038/s41597-024-04019-z"
 
 
