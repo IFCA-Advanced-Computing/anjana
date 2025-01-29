@@ -552,7 +552,7 @@ class TestHospital:
             data_anon, self.quasi_ident, hierarchies, [4, 1, 1]
         )
         assert [4, 1, 1] == utils.get_transformation(
-            data_transform, self.quasi_ident, self.hierarchies
+            data_transform, self.quasi_ident, hierarchies
         )
 
     def test_generate_intervals(self):
