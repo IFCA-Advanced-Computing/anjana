@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.1.0](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.0.0...v1.1.0) (2025-01-30)
+
+
+### Features
+
+* add fuction for applying a given transformation ([be9c7dd](https://github.com/IFCA-Advanced-Computing/anjana/commit/be9c7dd7fbf88bb74d30c7bb56279cbde08958dd))
+
+
+### Bug Fixes
+
+* fix  apply_transformation function ([61998c3](https://github.com/IFCA-Advanced-Computing/anjana/commit/61998c33466c2810d6d350dd4eade5a676a627ff))
+
+
+### Documentation
+
+* fix EU acknowledgement with link to Cordis ([18de191](https://github.com/IFCA-Advanced-Computing/anjana/commit/18de1913acb090eeba482484dc506266ee86b78f))
+* update getting_started.rst ([56cf748](https://github.com/IFCA-Advanced-Computing/anjana/commit/56cf74846942e93374c008921b5d2d042bdfce38))
+* update index.rst ([f7967ad](https://github.com/IFCA-Advanced-Computing/anjana/commit/f7967ad5884c30d926f2a3cd355d58d20f54951c))
+
 ## [1.0.0](https://github.com/IFCA-Advanced-Computing/anjana/compare/v0.2.2...v1.0.0) (2024-08-14)
 
 
