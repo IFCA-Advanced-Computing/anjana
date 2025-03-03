@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.1.0...v1.1.1) (2025-03-03)
+
+
+### Documentation
+
+* update sphinx version ([5b961a9](https://github.com/IFCA-Advanced-Computing/anjana/commit/5b961a9a91bbfaef825ab26aea15e9320a2f6862))
+
 ## [1.1.0](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.0.0...v1.1.0) (2025-01-30)
 
 
