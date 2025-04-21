@@ -195,9 +195,22 @@ hierarchies = {
 ## License
 This project is licensed under the [Apache 2.0 license](https://github.com/IFCA-Advanced-Computing/anjana/blob/main/LICENSE).
 
-## Project status
-This project is under active development.
+## Citation
+If you are using _anjana_ you can cite it as follows:
 
+```bibtex
+@article{sainzpardo2024anjana,
+    title={An Open Source Python Library for Anonymizing Sensitive Data},
+    author={S{\'a}inz-Pardo D{\'\i}az, Judith and L{\'o}pez Garc{\'\i}a, {\'A}lvaro},
+    journal={Scientific data},
+    volume={11},
+    number={1},
+    pages={1289},
+    year={2024},
+    publisher={Nature Publishing Group UK London}
+  }
+```
+  
 ## Funding and acknowledgments
 This work is funded by European Union through the SIESTA project (Horizon Europe) under Grant number [101131957](https://cordis.europa.eu/project/id/101131957).
 <p>
