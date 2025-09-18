@@ -1,4 +1,5 @@
-# ANJANA
+<img align="center" width="500" src="https://raw.githubusercontent.com/IFCA-Advanced-Computing/anjana/develop/images/anjana_logo.png">
+
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://gitlab.ifca.es/privacy-security/anjana/-/blob/main/LICENSE)
 [![codecov](https://codecov.io/gh/IFCA-Advanced-Computing/anjana/graph/badge.svg?token=AVI53GZ7YD)](https://codecov.io/gh/IFCA-Advanced-Computing/anjana)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11184467.svg)](https://doi.org/10.5281/zenodo.11184467)
