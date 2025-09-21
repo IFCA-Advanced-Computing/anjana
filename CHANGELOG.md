@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.2.0](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.1.0...v1.2.0) (2025-09-21)
+
+
+### Features
+
+* add anjana logo ([ce292b3](https://github.com/IFCA-Advanced-Computing/anjana/commit/ce292b39743104e254090ca8468654e83b2aa823))
+* add anjana logo ([43f8e0e](https://github.com/IFCA-Advanced-Computing/anjana/commit/43f8e0e77a40cc2e1e668044db96eeb2eacf6eed))
+
+
+### Bug Fixes
+
+* add anjana logo ([1635674](https://github.com/IFCA-Advanced-Computing/anjana/commit/16356745c7e279c5985ba2073bb1a30af768497a))
+
+
+### Documentation
+
+* add logo ([d370a7c](https://github.com/IFCA-Advanced-Computing/anjana/commit/d370a7c59fc0dcc6d97ee41cb19076dbe63cfa4c))
+* update logo ([14ac46d](https://github.com/IFCA-Advanced-Computing/anjana/commit/14ac46dfd001fc44174f884ce64f058196a5c33b))
+* update README.md ([1c22697](https://github.com/IFCA-Advanced-Computing/anjana/commit/1c2269781d1dcd3faf00cf4d6b0018680f47df46))
+* update sphinx version ([5b961a9](https://github.com/IFCA-Advanced-Computing/anjana/commit/5b961a9a91bbfaef825ab26aea15e9320a2f6862))
+
 ## [1.1.0](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.0.0...v1.1.0) (2025-01-30)
 
 
