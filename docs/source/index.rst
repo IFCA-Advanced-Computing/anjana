@@ -1,4 +1,8 @@
-ANJANA
+.. image:: https://raw.githubusercontent.com/IFCA-Advanced-Computing/anjana/main/images/anjana_logo.png
+   :align: center
+   :width: 400px
+
+Anonymity as major assurance of personal data privacy
 =============================================================================
 
 |License| |codecov| |DOI| |Downloads| |Documentation Status|
