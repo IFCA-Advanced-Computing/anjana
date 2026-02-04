@@ -9,7 +9,7 @@ If you are using anjana and have developed a new feature (especially implementin
 2. Clone the local repository:
    
    ```bash
-   git clone https://github.com/your-user/anjana.git
+   git clone https://github.com/IFCA-Advanced-Computing/anjana.git
 
 3. Set up a virtual environment and install the requirements:
 
@@ -52,7 +52,7 @@ Any additional details you consider important will help us to resolve it more qu
 ### Suggest a new feature:
 
 If you are missing some functionality that you would like to see implemented in anjana, you can request it by opening an [issue](https://github.com/IFCA-Advanced-Computing/anjana/issues) as indicated in the previous section.
-1. check that this functionality is not included or has not been previously requested in another issue.
+1. Check that this functionality is not included or has not been previously requested in another issue.
 2. Give us information about the required functionality, including why it is important for the users to have it be available in anjana.
 3. Include theoretical information about the new technique or feature requested, including papers supporting its usefulness.
 
