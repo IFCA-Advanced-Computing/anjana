@@ -19,7 +19,7 @@ If you are using anjana and have developed a new feature (especially implementin
     source .venv/bin/activate
     pip install -e .
 
-4. Create a new brach (e.g. develop).
+4. Create a new branch (e.g. develop).
 
      ```bash
      git checkout -b develop
