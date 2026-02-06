@@ -12,7 +12,7 @@
 [![Code Coverage](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/.codecov.yml/badge.svg)](https://github.com/IFCA-Advanced-Computing/anjana/actions/workflows/.codecov.yml)
 ![Python version](https://img.shields.io/badge/python-3.9|3.10|3.11|3.12-blue)
 
-**Anonymity as major assurance of personal data privacy:**
+**Anonymity as major assurance of personal data privacy**
 
 ANJANA is a Python library for anonymizing sensitive data.
 
@@ -212,7 +212,7 @@ If you are using _anjana_ you can cite it as follows:
   }
 ```
 
-## Related work:
+## Related work
 If you are using ___anjana___, you may also be interested in:
 - [_pyCANON_](https://github.com/IFCA-Advanced-Computing/pycanon): a Python library for checking the level of anonymity of a dataset.
 - [_trasgoDP_](https://github.com/judithspd/trasgoDP): a Python library which implements different mechanisms to apply local differential privacy directly to your data.
