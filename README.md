@@ -211,6 +211,11 @@ If you are using _anjana_ you can cite it as follows:
     publisher={Nature Publishing Group UK London}
   }
 ```
+
+## Related work:
+If you are using ___anjana___, you may also be interested in:
+- [_pyCANON_](https://github.com/IFCA-Advanced-Computing/pycanon): a Python library for checking the level of anonymity of a dataset.
+- [_trasgoDP_](https://github.com/judithspd/trasgoDP): a Python library which implements different mechanisms to apply local differential privacy directly to your data.
   
 ## Funding and acknowledgments
 This work is funded by European Union through the SIESTA project (Horizon Europe) under Grant number [101131957](https://cordis.europa.eu/project/id/101131957).
