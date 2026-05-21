@@ -148,6 +148,7 @@ def check_gen_level(
                 hierarchy_level = set(hierarchies[qi][level])
                 if set(data[qi].values).issubset(hierarchy_level):
                     gen_level[qi] = level
+                    break
 
     return gen_level
 
