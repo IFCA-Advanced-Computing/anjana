@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.2](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.2.1...v1.2.2) (2026-05-21)
+
+
+### Bug Fixes
+
+* change numpy version in pyproject.toml ([fb6c9bd](https://github.com/IFCA-Advanced-Computing/anjana/commit/fb6c9bd03e958244522750ec16f699cc8d630fbb))
+* ugrade Python dependency from 3.9 to 3.10 ([67737bc](https://github.com/IFCA-Advanced-Computing/anjana/commit/67737bc9920fea1ae19aa07ec59ed55457d13a98))
+* update dependencies ([9dec160](https://github.com/IFCA-Advanced-Computing/anjana/commit/9dec160f7660a252627e87199010938456d11a44))
+* update dependency versions in pyproject.toml ([271f4b8](https://github.com/IFCA-Advanced-Computing/anjana/commit/271f4b82da62eae614eb8a9cf608e5bda58b49c8))
+* update Python version from 3.9 to 3.10 ([924cfee](https://github.com/IFCA-Advanced-Computing/anjana/commit/924cfee5e6811fb73228ba8d53feb7d93d7bf407))
+* update testing environments in CI workflow ([f1966b7](https://github.com/IFCA-Advanced-Computing/anjana/commit/f1966b7bf7ece3a251006a576d55dab8b3582151))
+* update tox.ini to remove Python 3.9 support ([546623a](https://github.com/IFCA-Advanced-Computing/anjana/commit/546623a121d167c5b5778a30bc355f2169c5348c))
+
 ## [1.2.1](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.2.0...v1.2.1) (2026-05-13)
 
 
