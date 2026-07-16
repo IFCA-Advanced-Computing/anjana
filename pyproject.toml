@@ -39,7 +39,7 @@ docutils = "0.22.4"
 
 
 [tool.poetry.group.dev.dependencies]
-tox = "4.55.1"
+tox = "4.56.4"
 
 
 [tool.poetry.group.test.dependencies]
