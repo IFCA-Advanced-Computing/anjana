@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.3](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.2.2...v1.2.3) (2026-07-20)
+
+
+### Bug Fixes
+
+* update hierarchy level check ([7c06e43](https://github.com/IFCA-Advanced-Computing/anjana/commit/7c06e435f888fcee37f7daa56e20dacaf31dd0db))
+
+
+### Documentation
+
+* bump release version from 1.2.1 to 1.2.2 ([a1f512f](https://github.com/IFCA-Advanced-Computing/anjana/commit/a1f512f0b06bed7dd809d002398c3b8a2f79a3fb))
+
 ## [1.2.2](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.2.1...v1.2.2) (2026-05-21)
 
 
