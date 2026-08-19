@@ -70,7 +70,7 @@ pip-check-reqs = ">=2.5.3,<4.0.0"
 
 
 [tool.poetry.group.test-mypy.dependencies]
-mypy = "2.3.0"
+mypy = "2.3.1"
 
 
 [tool.poetry.group.test-pypi.dependencies]
