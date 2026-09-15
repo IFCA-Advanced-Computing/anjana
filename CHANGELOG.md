@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.2.3...v1.2.4) (2026-09-15)
+
+
+### Documentation
+
+* bump release version to 1.2.3 ([02f8d60](https://github.com/IFCA-Advanced-Computing/anjana/commit/02f8d600bf15c019300be5a47acd87c36e51bda8))
+
 ## [1.2.3](https://github.com/IFCA-Advanced-Computing/anjana/compare/v1.2.2...v1.2.3) (2026-08-06)
 
 
